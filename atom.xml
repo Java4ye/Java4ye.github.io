@@ -187,7 +187,7 @@
 &lt;p&gt;&lt;strong&gt;我是 4ye 咱们下期应该…… 很快再见！！&lt;/strong&gt; 😆&lt;/p&gt;
 &lt;/blockquote&gt;
 </content>
-        <category term="学习资源" scheme="categories/Study/" />
+        <category term="学习资源" scheme="/categories/Study/" />
         <updated>2022-01-16T15:30:57.029Z</updated>
     </entry>
     <entry>
@@ -511,7 +511,7 @@ ALTER TABLE t1 ALTER INDEX i_idx VISIBLE;
 &lt;p&gt;&lt;strong&gt;我是 4ye 咱们下期很快再见！！&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 </content>
-        <category term="DB领域" scheme="categories/DB/" />
+        <category term="DB领域" scheme="/categories/DB/" />
         <updated>2022-01-16T15:26:05.223Z</updated>
     </entry>
     <entry>
@@ -638,7 +638,7 @@ ALTER TABLE t1 ALTER INDEX i_idx VISIBLE;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;我是 4ye 咱们下期应该…… 很快再见！！&lt;/strong&gt; 😆&lt;/p&gt;
 </content>
-        <category term="搜索引擎" scheme="categories/SearchEngine/" />
+        <category term="搜索引擎" scheme="/categories/SearchEngine/" />
         <updated>2022-01-16T15:21:44.429Z</updated>
     </entry>
     <entry>
@@ -851,7 +851,7 @@ ALTER TABLE t1 ALTER INDEX i_idx VISIBLE;
 &lt;p&gt;&lt;strong&gt;我是 4ye 咱们下期应该…… 很快再见！！&lt;/strong&gt; 😆&lt;/p&gt;
 &lt;p&gt;喜欢的话还可以关注下公众号 &lt;strong&gt;Java4ye&lt;/strong&gt; 支持下 &lt;strong&gt;4ye&lt;/strong&gt; 呀😝&lt;/p&gt;
 </content>
-        <category term="Spring家族" scheme="categories/Spring/" />
+        <category term="Spring家族" scheme="/categories/Spring/" />
         <updated>2022-01-16T10:34:27.097Z</updated>
     </entry>
     <entry>
@@ -889,7 +889,7 @@ ALTER TABLE t1 ALTER INDEX i_idx VISIBLE;
 &lt;h3 id=&#34;喜欢真好呀-oo&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#喜欢真好呀-oo&#34;&gt;#&lt;/a&gt; 喜欢，真好呀 o (&lt;sup&gt;▽&lt;/sup&gt;)o&lt;/h3&gt;
 &lt;h3 id=&#34;不知道此刻阅读的你是否也有这一股喜欢的劲愿你们互相吸引~-牵起手来&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#不知道此刻阅读的你是否也有这一股喜欢的劲愿你们互相吸引~-牵起手来&#34;&gt;#&lt;/a&gt; 不知道此刻阅读的你，是否也有这一股喜欢的劲，愿你们互相吸引～牵起手来 😝&lt;/h3&gt;
 </content>
-        <category term="Python" scheme="categories/Python/" />
+        <category term="Python" scheme="/categories/Python/" />
         <updated>2022-01-16T10:32:28.553Z</updated>
     </entry>
     <entry>
@@ -944,7 +944,7 @@ ALTER TABLE t1 ALTER INDEX i_idx VISIBLE;
 &lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/20200911072319.png&#34; alt=&#34;反射破坏单例模式&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;有什么不对的请多多指教，阿里嘎多😄&lt;/p&gt;
 </content>
-        <category term="Java" scheme="categories/Java/" />
+        <category term="Java" scheme="/categories/Java/" />
         <updated>2022-01-16T09:54:55.312Z</updated>
     </entry>
 </feed>

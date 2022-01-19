@@ -21,7 +21,7 @@
             <guid isPermalink="true">Study/这5个GitHub项目+3个网站，助你一飞冲天！/</guid>
             <title>这5个GitHub项目+3个网站，助你一飞冲天！</title>
             <link>Study/这5个GitHub项目+3个网站，助你一飞冲天！/</link>
-            <category term="学习资源" scheme="categories/Study/" />
+            <category term="学习资源" scheme="/categories/Study/" />
             <pubDate>Sun, 16 Jan 2022 23:30:57 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;小伙伴们周末好呀，这次来更新一波学习资源啦～👍&lt;/p&gt;
 &lt;p&gt;之前推荐过一些书，这次我们就来看看 &lt;strong&gt;4ye&lt;/strong&gt; 平时常关顾的一些学习网站叭！😋&lt;/p&gt;
@@ -197,7 +197,7 @@
             <guid isPermalink="true">DB/MySQL各大版本新特性一览/</guid>
             <title>MySQL各大版本新特性一览</title>
             <link>DB/MySQL各大版本新特性一览/</link>
-            <category term="DB领域" scheme="categories/DB/" />
+            <category term="DB领域" scheme="/categories/DB/" />
             <pubDate>Sun, 16 Jan 2022 23:26:05 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;嘀嘀嘀～理想每天都更文，现实几天一篇文，横批： 文呢？&lt;/p&gt;
 &lt;p&gt;哈哈哈 无奈呀&lt;/p&gt;
@@ -521,7 +521,7 @@ ALTER TABLE t1 ALTER INDEX i_idx VISIBLE;
             <guid isPermalink="true">SearchEngine/ElasticSearch中必须掌握的七个概念/</guid>
             <title>ElasticSearch中必须掌握的七个概念</title>
             <link>SearchEngine/ElasticSearch中必须掌握的七个概念/</link>
-            <category term="搜索引擎" scheme="categories/SearchEngine/" />
+            <category term="搜索引擎" scheme="/categories/SearchEngine/" />
             <pubDate>Sun, 16 Jan 2022 23:21:44 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;小伙伴们好呀～我是 4ye (・̀ ω・́) y，今天来和大家分享下这个 ElasticSearch 中必须要掌握的几个概念。👇&lt;/p&gt;
 &lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20211124230156625.png&#34; alt=&#34;image-20211124230156625&#34; /&gt;&lt;/p&gt;
@@ -648,7 +648,7 @@ ALTER TABLE t1 ALTER INDEX i_idx VISIBLE;
             <guid isPermalink="true">Spring/16张图解锁Spring的整体脉络啦/</guid>
             <title>16张图解锁Spring的整体脉络</title>
             <link>Spring/16张图解锁Spring的整体脉络啦/</link>
-            <category term="Spring家族" scheme="categories/Spring/" />
+            <category term="Spring家族" scheme="/categories/Spring/" />
             <pubDate>Sun, 16 Jan 2022 18:34:27 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;今天来梳理下 &lt;strong&gt;Spring&lt;/strong&gt; 的整体脉络啦，为后面的文章做个铺垫～&lt;/p&gt;
 &lt;p&gt;后面几篇文章应该会讲讲这些内容啦 😆&lt;/p&gt;
@@ -861,7 +861,7 @@ ALTER TABLE t1 ALTER INDEX i_idx VISIBLE;
             <guid isPermalink="true">Python/情窦初开，连喜欢都这么的青涩/</guid>
             <title>情窦初开，原来喜欢这么可爱的</title>
             <link>Python/情窦初开，连喜欢都这么的青涩/</link>
-            <category term="Python" scheme="categories/Python/" />
+            <category term="Python" scheme="/categories/Python/" />
             <pubDate>Sun, 16 Jan 2022 18:32:28 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;这两天被一位可爱的小粉丝秀到了，原来 这就是 &lt;strong&gt;年少的喜欢呀&lt;/strong&gt;～～😊&lt;/p&gt;
 &lt;p&gt;让 4ye 这上了年纪的老人家好生羡慕呀😝&lt;/p&gt;
@@ -899,7 +899,7 @@ ALTER TABLE t1 ALTER INDEX i_idx VISIBLE;
             <guid isPermalink="true">Java/单例模式八个例子/</guid>
             <title>单例模式八个例子</title>
             <link>Java/单例模式八个例子/</link>
-            <category term="Java" scheme="categories/Java/" />
+            <category term="Java" scheme="/categories/Java/" />
             <pubDate>Sun, 16 Jan 2022 17:54:55 +0800</pubDate>
             <description><![CDATA[ &lt;blockquote&gt;
 &lt;p&gt;实现单例模式的八种模式：饿汉式，懒汉式，双重检查锁模式，静态内部类模式，序列化模式，注册式之枚举，注册式之容器，线程实现 ThreadLocal&lt;/p&gt;
