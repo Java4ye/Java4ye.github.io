@@ -1,23 +1,1051 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https:///Java4ye.github.io</id>
+    <id>https://java4ye.cn</id>
     <title>程序员小站</title>
     <subtitle>4ye的后端技术小站</subtitle>
-    <icon>/images/favicon.ico</icon>
-    <link href="https:///Java4ye.github.io" />
+    <icon>https://java4ye.cn/images/favicon.ico</icon>
+    <link href="https://java4ye.cn" />
     <author>
       <name>Java4ye</name>
     </author>
-    <updated>2022-01-16T15:30:57.029Z</updated>
+    <updated>2022-01-20T14:57:28.906Z</updated>
+    <category term="程序员小站" />
     <category term="java4ye" />
     <category term="4ye" />
     <category term="后端" />
     <category term="Java" />
     <category term="Spring" />
     <entry>
-        <id>Study/这5个GitHub项目+3个网站，助你一飞冲天！/</id>
+        <id>https://java4ye.cn/Spring/%E4%B8%89%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8BSpring%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6/</id>
+        <title>三分钟快速上手Spring事件机制</title>
+        <link rel="alternate" href="https://java4ye.cn/Spring/%E4%B8%89%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8BSpring%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6/"/>
+        <content type="html">&lt;p&gt;小伙伴们好呀～今天来和大家分享下这个 &lt;strong&gt;Spring 事件机制&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;内容概览&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#内容概览&#34;&gt;#&lt;/a&gt; 内容概览&lt;/h3&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210829132019387.png&#34; alt=&#34;image-20210829132019387&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;原理&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#原理&#34;&gt;#&lt;/a&gt; 原理&lt;/h3&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210828184103069.png&#34; alt=&#34;image-20210828184103069&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;这个熟悉 &lt;strong&gt;观察者模式&lt;/strong&gt; 的小伙伴应该一眼就看出来啦～&lt;/p&gt;
+&lt;p&gt;其实就是个简单版的 &lt;strong&gt;发布 - 订阅模式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;有三个核心类👇&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;事件&lt;/strong&gt;  &lt;code&gt;ApplicationEvent&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;事件发布器&lt;/strong&gt;  &lt;code&gt;ApplicationEventPublisher&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;事件监听器&lt;/strong&gt;  &lt;code&gt;ApplicationListener&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;用途👇&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;事件发布器发布事件，监听器监听到对应的事件后做出相应的反应～&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;为什么使用&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#为什么使用&#34;&gt;#&lt;/a&gt; 为什么使用&lt;/h3&gt;
+&lt;p&gt;因为需求也不确定 🙄&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;场景&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;领导：想在用户操作完后发个邮件通知下 A&lt;/p&gt;
+&lt;p&gt;我：好的&lt;/p&gt;
+&lt;p&gt;几天后……&lt;/p&gt;
+&lt;p&gt;领导：算了，先站内提醒就好了，后面再考虑发短信通知啥的，看看哪个效果好点&lt;/p&gt;
+&lt;p&gt;我：…… 好的&lt;/p&gt;
+&lt;p&gt;一开始我也没用这个事件机制的，没多想就写一起了&lt;/p&gt;
+&lt;p&gt;后面觉得有点不对劲，才想起来用这招的😄&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;优点👇&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;解耦&lt;/strong&gt; 可以将业务代码和发邮件，站内提醒，短信等进行分离&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;异步通知&lt;/strong&gt; 不用等待这些事件的完成&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;提高扩展性&lt;/strong&gt; 后面再扩展其他操作也方便多啦&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;提醒&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;体量小的系统还可以用，大点的还是直接用消息中间件去解决靠谱&lt;/p&gt;
+&lt;h3 id=&#34;项目实战&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#项目实战&#34;&gt;#&lt;/a&gt; 项目实战&lt;/h3&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210829102043376.png&#34; alt=&#34;image-20210829102043376&#34; /&gt;&lt;/p&gt;
+&lt;h4 id=&#34;功能&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#功能&#34;&gt;#&lt;/a&gt; 功能&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;根据小伙伴反馈事件去发送短信和邮件&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;主要源码&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#主要源码&#34;&gt;#&lt;/a&gt; 主要源码&lt;/h4&gt;
+&lt;p&gt;一。小伙伴反馈事件  &lt;code&gt;ReaderFeedbackEvent&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210829094311899.png&#34; alt=&#34;image-20210829094311899&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;特点和作用👇&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;继承  &lt;code&gt;ApplicationEvent&lt;/code&gt;  ，保存反馈信息的 DTO&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;二。事件发布器  &lt;code&gt;ReaderFeedbackEventPublisher&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210829102353506.png&#34; alt=&#34;image-20210829102353506&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;特点和作用👇&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;实现  &lt;code&gt;ApplicationEventPublisherAware&lt;/code&gt;  这个接口，获取  &lt;code&gt;ApplicationEventPublisher&lt;/code&gt;  事件发布器去发布事件&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;三。监听  &lt;code&gt;ReaderFeedbackEvent&lt;/code&gt;  事件并发送邮件&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210829102540185.png&#34; alt=&#34;image-20210829102540185&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;特点和作用👇&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;实现  &lt;code&gt;ApplicationListener&lt;/code&gt;  这个接口，获取事件中的反馈信息，并发送邮件&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;四。当反馈信息有点赞时才发送短信通知😄&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210829102736577.png&#34; alt=&#34;image-20210829102736577&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;特点和作用👇&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;监听器的第二种写法 —— &lt;strong&gt;注解&lt;/strong&gt; ，比较方便，这里监听并判断是不是点赞，再去发送短信😝&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;测试&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#测试&#34;&gt;#&lt;/a&gt; 测试&lt;/h4&gt;
+&lt;p&gt;这里直接在  &lt;code&gt;IDEA&lt;/code&gt;  中进行测试，&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210829111125716.png&#34; alt=&#34;image-20210829111125716&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;效果如下👇&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;like = false&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210829111409325.png&#34; alt=&#34;image-20210829111409325&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;like = true&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210829124910499.png&#34; alt=&#34;image-20210829124910499&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;收到的短信&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&amp;lt;img src=&amp;quot;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2ltZy5yeXpleWFuZy50b3AvaW1hZ2UtMjAyMTA4MjkxMjQ4MTcyODAucG5n&#34;&gt;http://img.ryzeyang.top/image-20210829124817280.png&lt;/span&gt;&amp;quot; alt=&amp;quot;image-20210829124817280&amp;quot; style=&amp;quot;zoom:67%;&amp;quot; /&amp;gt;&lt;/p&gt;
+&lt;h4 id=&#34;小结&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#小结&#34;&gt;#&lt;/a&gt; 小结&lt;/h4&gt;
+&lt;p&gt;可以看到功能模块很简单，监听反馈事件，然后去发送短信和邮件～&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210829130532523.png&#34; alt=&#34;image-20210829130532523&#34; /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这部分代码上传到我的  &lt;code&gt;GitHub&lt;/code&gt;  仓库啦 （&lt;strong&gt;地址在文末&lt;/strong&gt;），有兴趣的小伙伴可以去看看， 喜欢的话顺手给个  &lt;code&gt;star&lt;/code&gt;  呀，感谢！😝&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;spring源码解读&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#spring源码解读&#34;&gt;#&lt;/a&gt; Spring 源码解读&lt;/h3&gt;
+&lt;h4 id=&#34;异步同步&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#异步同步&#34;&gt;#&lt;/a&gt; 异步 / 同步&lt;/h4&gt;
+&lt;p&gt;这里我们打个断点，就可以轻易的来到这里啦 👇&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210829104327436.png&#34; alt=&#34;image-20210829104327436&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;这个方法在&lt;strong&gt;事件多播器&lt;/strong&gt;  &lt;code&gt;SimpleApplicationEventMulticaster&lt;/code&gt;  中，可以看到当有配置这个&lt;strong&gt;线程池&lt;/strong&gt;时，是走&lt;strong&gt;异步&lt;/strong&gt;通知路线的&lt;/p&gt;
+&lt;h4 id=&#34;那怎么调用监听器的呢&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#那怎么调用监听器的呢&#34;&gt;#&lt;/a&gt; 那怎么调用监听器的呢？&lt;/h4&gt;
+&lt;p&gt;可以看到就这简单&lt;strong&gt; 3 步&lt;/strong&gt; ，最后就是回到我们的  &lt;code&gt;onApplicationEvent&lt;/code&gt;  方法中去处理的&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;invokeListener&lt;/code&gt;  ——&amp;gt;  &lt;code&gt;doInvokeListener&lt;/code&gt;  ——&amp;gt;  &lt;code&gt;onApplicationEvent&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210829104759111.png&#34; alt=&#34;image-20210829104759111&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;总结&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#总结&#34;&gt;#&lt;/a&gt; 总结&lt;/h3&gt;
+&lt;p&gt;活学活用，快去试试叭！😆&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;项目地址👉&lt;/strong&gt;： &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL0phdmE0eWUvc3ByaW5nYm9vdC1kZW1vLTR5ZQ==&#34;&gt;https://github.com/Java4ye/springboot-demo-4ye&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;喜欢的话，麻烦点个小星星呀⭐⭐😝&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210829144304728.png&#34; alt=&#34;image-20210829144304728&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;本期思维导图如下👇&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210829132531501.png&#34; alt=&#34;image-20210829132531501&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;ps：最近忙起来啦，更文速度会慢一些哦～🐷&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;我是 4ye 咱们下期应该…… 很快再见！！&lt;/strong&gt; 😆&lt;/p&gt;
+&lt;p&gt;喜欢的话可以关注下公众号 &lt;strong&gt;Java4ye&lt;/strong&gt; 支持下 &lt;strong&gt;4ye&lt;/strong&gt; 呀😝&lt;/p&gt;
+</content>
+        <category term="Spring家族" scheme="https://java4ye.cn/categories/Spring/" />
+        <updated>2022-01-20T14:57:28.906Z</updated>
+    </entry>
+    <entry>
+        <id>https://java4ye.cn/Spring/Spring%20AOP%E5%86%85%E5%8A%9F%E4%BF%AE%E7%82%BC/</id>
+        <title>Spring AOP内功修炼</title>
+        <link rel="alternate" href="https://java4ye.cn/Spring/Spring%20AOP%E5%86%85%E5%8A%9F%E4%BF%AE%E7%82%BC/"/>
+        <content type="html">&lt;p&gt;哈哈 终于更到这里了 🐷&lt;/p&gt;
+&lt;p&gt;今天来和小伙伴们分享这个 &lt;strong&gt;Spring AOP&lt;/strong&gt;  的知识点 👇&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210913072321674.png&#34; alt=&#34;image-20210913072321674&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;这里先推荐大家去阅读 &lt;strong&gt;Spring&lt;/strong&gt; 的官方文档，&lt;strong&gt;core&lt;/strong&gt; 文档的 5，6 章节， 和 &lt;strong&gt;AOP&lt;/strong&gt; 相关的概念都可以这这里找到～，还有我们要了解的 &lt;strong&gt;Spring AOP APIs&lt;/strong&gt; 😄&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210910074335232.png&#34; alt=&#34;image-20210910074335232&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;先来介绍下这个 &lt;strong&gt;AOP&lt;/strong&gt; 😄&lt;/p&gt;
+&lt;h3 id=&#34;aop-概念&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#aop-概念&#34;&gt;#&lt;/a&gt; AOP 概念&lt;/h3&gt;
+&lt;p&gt;这是个老生常谈的问题呀 哈哈 熟悉的小伙伴们可以略过😄&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;面向切面编程 &lt;strong&gt;Aspect-Oriented Programming&lt;/strong&gt; ，是对 &lt;strong&gt;OOP&lt;/strong&gt; 的一种补充&lt;/p&gt;
+&lt;p&gt;使用场景有 ： &lt;strong&gt;日志&lt;/strong&gt; ，&lt;strong&gt;事务&lt;/strong&gt; ， &lt;strong&gt;权限认证&lt;/strong&gt; ， &lt;strong&gt;缓存&lt;/strong&gt; 等&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;而 &lt;strong&gt;Spring AOP&lt;/strong&gt; 呢，会通过这个 &lt;strong&gt;代理类&lt;/strong&gt; 来实现对方法的&lt;strong&gt;增强&lt;/strong&gt; 👇&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210910073611972.png&#34; alt=&#34;image-20210910073611972&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;这里有很重要的几个概念 👇(看图就好啦)&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210910074649844.png&#34; alt=&#34;image-20210910074649844&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;概念关系图&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#概念关系图&#34;&gt;#&lt;/a&gt; 概念关系图&lt;/h3&gt;
+&lt;p&gt;通过 &lt;strong&gt;PointCut&lt;/strong&gt; 去匹配符合的 &lt;strong&gt;JoinPoint&lt;/strong&gt; ，再对其做 &lt;strong&gt;Weaving&lt;/strong&gt;・操作，将  &lt;strong&gt;Advice&lt;/strong&gt; 织入其中。&lt;/p&gt;
+&lt;p&gt;而 &lt;strong&gt;PointCut&lt;/strong&gt; 和 &lt;strong&gt;Advice&lt;/strong&gt; 存放在 &lt;strong&gt;Aspect&lt;/strong&gt;  中。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210910081828619.png&#34; alt=&#34;image-20210910081828619&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;切点表达式图&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#切点表达式图&#34;&gt;#&lt;/a&gt; 切点表达式图&lt;/h3&gt;
+&lt;p&gt;如：&lt;strong&gt;execution&lt;/strong&gt; ，&lt;strong&gt;within&lt;/strong&gt; ， &lt;strong&gt;this&lt;/strong&gt; ，&lt;strong&gt;target&lt;/strong&gt; ，&lt;strong&gt;args&lt;/strong&gt; ，&lt;strong&gt;bean&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;以及&lt;strong&gt;匹配注解&lt;/strong&gt;用的 &lt;strong&gt;@target&lt;/strong&gt; ，&lt;strong&gt;@args&lt;/strong&gt; ，&lt;strong&gt;@within&lt;/strong&gt; ， &lt;strong&gt;@annotation&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&#34;execution&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#execution&#34;&gt;#&lt;/a&gt; execution&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;作用： 匹配 某些连接点&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;execution (public * *(..))   作用： 匹配所有公共方法&lt;/li&gt;
+&lt;li&gt;execution (* set*(..)) 作用：匹配所有 set 开头的方法&lt;/li&gt;
+&lt;li&gt;execution (* com.xyz.service.AccountService.*(..)) 作用：匹配 AccountService 中的所有方法&lt;/li&gt;
+&lt;li&gt;execution(* com.xyz.service.&lt;em&gt;.&lt;/em&gt;(..)) 作用：匹配 service 包中的所有方法&lt;/li&gt;
+&lt;li&gt;execution(* com.xyz.service..&lt;em&gt;.&lt;/em&gt;(..)) 作用：匹配 service 包和它的子包中 所有的方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;within&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#within&#34;&gt;#&lt;/a&gt; within&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;作用：匹配 类 中的所有 连接点&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;within (com.xyz.service.*) 作用：匹配 service 包中的所有方法&lt;/li&gt;
+&lt;li&gt;within (com.xyz.service..*) 作用：匹配 service 包和它的子包中 所有的方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;this&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#this&#34;&gt;#&lt;/a&gt; this&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;作用：匹配 代理类&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;this (com.xyz.service.AccountService) 作用：匹配 实现了 AccountService 接口的 代理类，即 父类是 AccountService&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;target&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#target&#34;&gt;#&lt;/a&gt; target&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;作用：匹配 被代理类&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;target (com.xyz.service.AccountService) 作用：匹配 实现了 AccountService 接口的 被代理类，即 父类是 AccountService&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;args&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#args&#34;&gt;#&lt;/a&gt; args&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;作用：匹配 方法参数&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;args (java.io.Serializable)  作用：匹配 单个方法参数，且是 Serializable 类型的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;bean&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#bean&#34;&gt;#&lt;/a&gt; bean&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;作用：匹配 bean 名称，Spring 扩展 AspectJ 的 PDC 规范， 只能在 Spring AOP 中生效&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;target-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#target-2&#34;&gt;#&lt;/a&gt; @target&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;作用：匹配 有注解的 被代理类&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;@target (org.springframework.transaction.annotation.Transactional)  作用：匹配 @Transactional 注解的 被代理类&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;args-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#args-2&#34;&gt;#&lt;/a&gt; @args&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;作用：匹配 传入的参数 有某个注解&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;@args (com.xyz.security.Classified) 作用： 匹配有 @Classified 注解的参数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;within-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#within-2&#34;&gt;#&lt;/a&gt; @within&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;作用：匹配 有某个注解 的 类&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;@within (org.springframework.transaction.annotation.Transactional) 作用： 匹配 有 @Transactional 注解 的 类中的所有 连接点&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;annotation&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#annotation&#34;&gt;#&lt;/a&gt; @annotation&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;作用：匹配 该注解&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;@annotation (org.springframework.transaction.annotation.Transactional) 作用： 匹配 @Transactional 注解&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;小结图如下 👇&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210910082639157.png&#34; alt=&#34;image-20210910082639157&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;advice-注解图&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#advice-注解图&#34;&gt;#&lt;/a&gt; Advice 注解图&lt;/h3&gt;
+&lt;p&gt;这里是常用的五个注解&lt;/p&gt;
+&lt;p&gt;注意：&lt;strong&gt;@After&lt;/strong&gt; 等于 &lt;strong&gt;finally&lt;/strong&gt; 语句块，必定会执行，还有 &lt;strong&gt;@Around&lt;/strong&gt; 注解时，方法的第一个参数必须是 &lt;strong&gt;ProceedingJoinPoint&lt;/strong&gt; ，它是 &lt;strong&gt;JoinPoint&lt;/strong&gt; 的子接口&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210913074020835.png&#34; alt=&#34;image-20210913074020835&#34; /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;blockquote&gt;
+&lt;p&gt;下面的内容是本文的重点～😝&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;编程式-aop&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#编程式-aop&#34;&gt;#&lt;/a&gt; 编程式 AOP&lt;/h3&gt;
+&lt;p&gt;这个呢，是我们写 &lt;strong&gt;AOP 插件&lt;/strong&gt; 的基础&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210912074920354.png&#34; alt=&#34;image-20210912074920354&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;这里要理解这几个概念 👇&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Pointcut&lt;/strong&gt; :  &lt;strong&gt;对应 @Pointcut&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Advice&lt;/strong&gt; ：&lt;strong&gt;对应 @Before，@After，@Around 等等&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Advisor&lt;/strong&gt; ：&lt;strong&gt;@Aspect 注解解析后的类，等于 Pointcut + Advice&lt;/strong&gt; 🐷&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Advised&lt;/strong&gt; :   &lt;strong&gt;Spring AOP 代理类都可以转换成该接口！&lt;/strong&gt; 🐷&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;例子我放到 &lt;strong&gt;Github&lt;/strong&gt; 上啦 ，地址放文末啦👇&lt;/p&gt;
+&lt;h3 id=&#34;pointcut&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#pointcut&#34;&gt;#&lt;/a&gt; Pointcut&lt;/h3&gt;
+&lt;p&gt;里面有两个返回类型式  &lt;strong&gt;ClassFilter&lt;/strong&gt; 和  &lt;strong&gt;MethodMatcher&lt;/strong&gt;  的方法，他们的作用如下 👇&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210912100228554.png&#34; alt=&#34;image-20210912100228554&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;4ye 也是大概了解下 哈哈 主要还是用 Spring 提供的实现类，如下面例子中用到的 &lt;strong&gt;NameMatchMethodPointcut&lt;/strong&gt; ，看名字就能猜个大概，就是匹配这个方法名的 😄&lt;/p&gt;
+&lt;h4 id=&#34;小例子&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#小例子&#34;&gt;#&lt;/a&gt; 小例子&lt;/h4&gt;
+&lt;p&gt;代码例子比较多，这里就举这个 &lt;strong&gt;Pointcut&lt;/strong&gt;  看看就好啦～（其他案例代码小伙伴们可以自行在我的 Github 仓库上获取😄）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;通过对 ProxyFactroy 添加 &lt;strong&gt;切面&lt;/strong&gt; 来对目标 sayService 做增强，这里的 Pointcut 只针对 setName 方法&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/AOP_Pointcut.png&#34; alt=&#34;AOP_Pointcut&#34; /&gt;&lt;/p&gt;
+&lt;h4 id=&#34;效果&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#效果&#34;&gt;#&lt;/a&gt; 效果&lt;/h4&gt;
+&lt;p&gt;可以看到只增强了 setName 方法&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210912094544020.png&#34; alt=&#34;image-20210912094544020&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;advice&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#advice&#34;&gt;#&lt;/a&gt; Advice&lt;/h3&gt;
+&lt;p&gt;可以看到这里 Spring 提供了这 五种类型。除了最后一种 Introduction 类型上面没提到外，是不是还发现少了一种类型😝&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210912161447604.png&#34; alt=&#34;image-20210912161447604&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;没错，就是这个 &lt;strong&gt;@After&lt;/strong&gt; 注解对应的&lt;strong&gt;最终通知&lt;/strong&gt; 😱&lt;/p&gt;
+&lt;p&gt;这去哪了呀 (￣﹏￣；)&lt;/p&gt;
+&lt;p&gt;在源码中寻找一番后，发现了这个 &lt;strong&gt;AspectJAfterAdvice&lt;/strong&gt; 👇&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210912104757851.png&#34; alt=&#34;image-20210912104757851&#34; /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;可以看到这里不仅实现了 &lt;strong&gt;AfterAdvice&lt;/strong&gt;  接口，还要实现这个 &lt;strong&gt;MethodInterceptor&lt;/strong&gt; 接口 ，最后真的是在 &lt;strong&gt;finally&lt;/strong&gt; 语句块中实现了这个&lt;strong&gt;增强操作&lt;/strong&gt;，来达到 &lt;strong&gt;最终通知&lt;/strong&gt; 的效果！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;所以我们需要 &lt;strong&gt;最终通知&lt;/strong&gt; 效果的话，可以直接模仿它去实现就好了～&lt;/p&gt;
+&lt;p&gt;而 Introduction Advice 这个还挺特别的🐖&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;作用：为代理类实现新的接口&lt;/p&gt;
+&lt;p&gt;等于 &lt;strong&gt;@DeclareParents&lt;/strong&gt; 注解&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;advisor&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#advisor&#34;&gt;#&lt;/a&gt; Advisor&lt;/h3&gt;
+&lt;p&gt;作用 👇&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;@Aspect 注解解析后的类，等于 Pointcut + Advice&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;advised&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#advised&#34;&gt;#&lt;/a&gt; Advised&lt;/h3&gt;
+&lt;p&gt;作用 👇&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;AOP 代理类都可以转换成该接口&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;为啥这些代理对象都能转换成这个-advised-接口&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#为啥这些代理对象都能转换成这个-advised-接口&#34;&gt;#&lt;/a&gt; 为啥这些代理对象都能转换成这个 &lt;strong&gt;Advised&lt;/strong&gt; 接口？&lt;/h4&gt;
+&lt;p&gt;答案当然不言而喻 哈哈，咱们来源码中看看 Spring 是怎么写的😝&lt;/p&gt;
+&lt;h4 id=&#34;jdk&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#jdk&#34;&gt;#&lt;/a&gt; JDK&lt;/h4&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210911231149301.png&#34; alt=&#34;image-20210911231149301&#34; /&gt;&lt;/p&gt;
+&lt;h4 id=&#34;cglib&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#cglib&#34;&gt;#&lt;/a&gt; Cglib&lt;/h4&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210911233943416.png&#34; alt=&#34;image-20210911233943416&#34; /&gt;&lt;/p&gt;
+&lt;h4 id=&#34;结论&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#结论&#34;&gt;#&lt;/a&gt; 结论&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;可以发现，不管是 JDK 还是 Cglib , 都会去调用同一个方法，为代理类多实现几个接口，其中一个就是 &lt;strong&gt;Advised&lt;/strong&gt; 😋&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;关系图&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#关系图&#34;&gt;#&lt;/a&gt; 关系图&lt;/h3&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/SpringAOP.png&#34; alt=&#34;SpringAOP&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;最后&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#最后&#34;&gt;#&lt;/a&gt; 最后&lt;/h3&gt;
+&lt;p&gt;本文就分享到这里啦🐖&lt;/p&gt;
+&lt;p&gt;重点内容在 &lt;strong&gt;编程式 AOP&lt;/strong&gt;  这一块～内功 + 1 😋&lt;/p&gt;
+&lt;p&gt;代码可以在这里获取 👇  可以自己多跑跑代码，会有更多问题等着你发现的！&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL0phdmE0eWUvc3ByaW5nYm9vdC1kZW1vLTR5ZS90cmVlL21haW4vc3ByaW5nYm9vdC1hb3A=&#34;&gt;https://github.com/Java4ye/springboot-demo-4ye/tree/main/springboot-aop&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;思维导图 👇&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3Byb2Nlc3Nvbi5jb20vY2hhcnRfaW1hZ2UvNjEzNGQ2Y2I3ZDljMDgxYzc1M2I1ZDU0LnBuZw==&#34;&gt;http://processon.com/chart_image/6134d6cb7d9c081c753b5d54.png&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;ps：这次分享的时候居然出现了 &lt;strong&gt;Gateway Timeout&lt;/strong&gt; 异常 ，如果等不及官方修复的话，可以在网盘获取&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;链接&lt;/strong&gt;：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9wYW4uYmFpZHUuY29tL3MvMUtWV3cwRGFZQ0tySVNJS0pncXF5dUE=&#34;&gt;https://pan.baidu.com/s/1KVWw0DaYCKrISIKJgqqyuA&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;提取码&lt;/strong&gt; 需在公众号后台回复  &lt;code&gt;bdwp&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210913074314344.png&#34; alt=&#34;image-20210913074314344&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;插件的部分代码我也上传啦，就差这画画图写写文啦 哈哈 (这两天应该就安排上了)😆&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;喜欢的话可以 &lt;strong&gt;关注&lt;/strong&gt; 并 &lt;strong&gt;星标&lt;/strong&gt; 下公众号 &lt;strong&gt;Java4ye&lt;/strong&gt; 支持下 &lt;strong&gt;4ye&lt;/strong&gt; 呀😝，这样就可以第一时间收到更文消息啦🐷&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;我是 4ye 咱们下期应该…… 很快再见！！&lt;/strong&gt; 😆&lt;/p&gt;
+</content>
+        <category term="Spring家族" scheme="https://java4ye.cn/categories/Spring/" />
+        <updated>2022-01-20T14:57:28.902Z</updated>
+    </entry>
+    <entry>
+        <id>https://java4ye.cn/Spring/AOP+MybatisPlus%20%E4%BC%98%E5%8C%96%E7%89%B9%E6%AE%8A%E7%9A%84%E6%97%A5%E5%BF%97%E6%A8%A1%E5%9D%97/</id>
+        <title>AOP+MybatisPlus 优化特殊的日志模块</title>
+        <link rel="alternate" href="https://java4ye.cn/Spring/AOP+MybatisPlus%20%E4%BC%98%E5%8C%96%E7%89%B9%E6%AE%8A%E7%9A%84%E6%97%A5%E5%BF%97%E6%A8%A1%E5%9D%97/"/>
+        <content type="html">&lt;p&gt;小伙伴们好久不见呀 哈哈 都快成月更号主了，，ԾㅂԾ,,  最近状态在调整啦，冲冲冲！😝&lt;/p&gt;
+&lt;p&gt;今天 4ye  来和小伙伴们分享下我在项目中利用  AOP + MybatisPlus   对项目进行重构，优化系统中特殊的日志模块的故事啦 😄 （PS：ES 写了一半～只能先来这个了）&lt;/p&gt;
+&lt;p&gt;其实这篇文章我是从吐槽部分开始写的 哈哈哈（不知不觉就吐槽了近千字 🤣）不过咋们还是从技术部分开始吧～&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20211112221346062.png&#34; alt=&#34;image-20211112221346062&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;功能描述&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#功能描述&#34;&gt;#&lt;/a&gt; 功能描述&lt;/h3&gt;
+&lt;p&gt;很久之前（大概有一年了叭，痛苦面具 🙃），老大让我把老项目中的日志模块移植到新项目中，这个日志模块的主要功能就是针对大部分表，做下面的操作&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;删除成功时，将被删除的数据记录到相应的 log 表&lt;/p&gt;
+&lt;p&gt;当修改或者插入数据成功时，将这些数据记录到相应的 log 表&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Log 表&lt;/strong&gt; 就是在 &lt;strong&gt;普通表&lt;/strong&gt; 的基础上，新增几个字段，如操作 ID 和操作方法。&lt;/p&gt;
+&lt;p&gt;操作 ID：类似请求 ID 。&lt;/p&gt;
+&lt;p&gt;操作方法： 表示这个行为是 CRUD 中 CUD 的哪一个。&lt;/p&gt;
+&lt;p&gt;比如在请求 001 中删除表 A 中的某条数据，则在 LOG_A 中会记录下这个 A 数据&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;A 表对应的各个字段和它们的值&lt;/th&gt;
+&lt;th&gt;操作 ID&lt;/th&gt;
+&lt;th&gt;操作方法&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;……&lt;/td&gt;
+&lt;td&gt;001&lt;/td&gt;
+&lt;td&gt;D&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;看到这里，你是否也觉得这 log 表很奇怪？&lt;/p&gt;
+&lt;p&gt;别急，最后再吐槽下 哈哈，先来说说这个技术 🐷&lt;/p&gt;
+&lt;h3 id=&#34;简单思考&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#简单思考&#34;&gt;#&lt;/a&gt; 简单思考&lt;/h3&gt;
+&lt;p&gt;我们可以发现这些这些东西和业务无关，可以直接用 AOP 来实现，老项目中也是用了 AOP。（听君一席话，听君一席话 哈哈哈 🤣）&lt;/p&gt;
+&lt;p&gt;先简单思考下会遇到什么问题 👇&lt;/p&gt;
+&lt;p&gt;比如：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;新增数据到相应的 log 表，意味着有很多简单的插入语句要写？还要考虑批量操作 🐖&lt;/li&gt;
+&lt;li&gt;操作 id 是怎么生成的？是直接用 uuid ，还是数据库自增 id？&lt;/li&gt;
+&lt;li&gt;怎么获取删除前的数据信息 、更新后的数据、插入后的数据 等&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这里就不卖关子啦 直接来看这个&lt;strong&gt;日志模块的设计&lt;/strong&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;操作id&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#操作id&#34;&gt;#&lt;/a&gt; 操作 ID&lt;/h3&gt;
+&lt;p&gt;先来看这个 &lt;strong&gt;操作 ID&lt;/strong&gt; 的生成，这里就没啥特别的  直接定义一个 &lt;strong&gt;注解&lt;/strong&gt;  如 @GenerateRequestID ，加在需要被拦截的方法上，然后我们在 AOP 中拦截它即可。功能如下 👇&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20211111143511498.png&#34; alt=&#34;image-20211111143511498&#34; /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;可以看到这个 操作 ID 是直接使用 Oracle 的 Sequence 去生成的，是有序的 ，能直接看出这批数据操作的先后顺序。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在增强这部分功能时，我发现之前 &lt;strong&gt;旧版本&lt;/strong&gt;居然没用 AOP 去设置这个 操作 ID，而是手动在需要的地方加，而且还定义了很多的 Key 来存储生成的这个 操作 ID，可以发现对这个 ThreadLocal 也很不熟悉呀！ 🙃&lt;/p&gt;
+&lt;p&gt;伪代码如下 😱 （坏代码 …… ）&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token class-name&#34;&gt;BigDecimal&lt;/span&gt; transactionId &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; sysLogMapper&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;generateTransactionId&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token class-name&#34;&gt;ThreadLocalUtil&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;setValue&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;SysLogConstants&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;xxx_LOG_TRANSACTION_ID&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; transactionId&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token class-name&#34;&gt;ThreadLocalUtil&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;setValue&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;SysLogConstants&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;aaa_LOG_TRANSACTION_ID&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; transactionId&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;// 业务方法&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token class-name&#34;&gt;ThreadLocalUtil&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;remove&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;SysLogConstants&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;xxx_LOG_TRANSACTION_ID&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token class-name&#34;&gt;ThreadLocalUtil&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;remove&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;SysLogConstants&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;aaa_LOG_TRANSACTION_ID&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;心细的小伙伴会不会有个小疑问，为什么我是在 &lt;strong&gt;请求结束&lt;/strong&gt; 时才去清除这个 操作 ID，而不是在 AOP 的 After 操作中去做的😄&lt;/p&gt;
+&lt;p&gt;其实这里是有个小插曲的，一开始我是在 AOP 的 @After 操作中去删除这个 操作 ID 的，但是呢 🙄 ，有同事将我改好的日志模块中的部分功能添加到之前的老项目中，而且他直接将这个注解加在 service 上，结果系统出现了 bug 🙄，还把我拉过去讨论 😒 ，这就很无语了……&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20211112221629564.png&#34; alt=&#34;image-20211112221629564&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;不过这个 bug 是不难发现的，毕竟这个注解如果加在 service 层面，会存在 service 调用 service 的情况，这样不仅会出现第一个 service 中生成的 &lt;strong&gt;操作 ID&lt;/strong&gt; 被第二个 service 覆盖，而且在第二个 service 结束后，&lt;strong&gt;操作 ID&lt;/strong&gt; 会被清除掉，但是这个字段是不允许为 null 的，所以就报错了。&lt;/p&gt;
+&lt;p&gt;按理说，直接加在这个 controller 层面就没问题了，但是讨论过后，在同事的建议下，我也同意对它进行小小的升级下，将这个 &lt;strong&gt;清除操作 ID&lt;/strong&gt; 的行为移动到这个 &lt;strong&gt;拦截器&lt;/strong&gt; 中  👇&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token annotation punctuation&#34;&gt;@Component&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;ThreadLocalInterceptor&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;implements&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;HandlerInterceptor&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token annotation punctuation&#34;&gt;@Override&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;afterCompletion&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;HttpServletRequest&lt;/span&gt; request&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;HttpServletResponse&lt;/span&gt; response&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;Object&lt;/span&gt; handler&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;Exception&lt;/span&gt; ex&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;throws&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;Exception&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token class-name&#34;&gt;ThreadLocalUtil&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;clear&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;感觉这种方式也挺简洁的，在请求结束后直接清掉这个 &lt;strong&gt;ThreadLocal&lt;/strong&gt; 中的内容。🐖&lt;/p&gt;
+&lt;h3 id=&#34;整体设计&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#整体设计&#34;&gt;#&lt;/a&gt; 整体设计&lt;/h3&gt;
+&lt;p&gt;接着，我们来看看这个 datalog 的生成。 新版的整体思路如下。😋 （画出来清晰多了）&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/2021-11-12_140557.png&#34; alt=&#34;2021-11-12_140557&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;删除操作&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#删除操作&#34;&gt;#&lt;/a&gt; 删除操作&lt;/h3&gt;
+&lt;p&gt;思路如上图～&lt;/p&gt;
+&lt;p&gt;在删除成功时，要将被删除的数据写到 Log 表 …… 😑&lt;/p&gt;
+&lt;p&gt;这里有两种情况：&lt;br /&gt;
+（一）根据主键删除 ，这种最简单，我们直接根据主键查出之前的数据即可。&lt;br /&gt;
+（二）根据其他条件删除，这里我们自定义获取主键的方法以便复用上面的方法。&lt;/p&gt;
+&lt;p&gt;这里就不得不提下这个 MybatisPlus 的好处了～，借用 BaseMapper 的 selectBatchIds 方法，我们可以很轻松的&lt;/p&gt;
+&lt;p&gt;查询出这些数据出来。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20211112142253855.png&#34; alt=&#34;image-20211112142253855&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;因为在使用 MybatisPlus 时，我们会生成相应的 Mapper 方法，而这里就很好地体现了  &lt;strong&gt;Java 多态&lt;/strong&gt; 的特点，我们只需要调用  (BaseMapper) SpringUtil.getBean (XXXMapper.class).selectBatchIds (result) ；即可实现。😄&lt;/p&gt;
+&lt;p&gt;所以将这个参数挂在 @MethodLog 注解上即可。&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token annotation punctuation&#34;&gt;@Mapper&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;interface&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;XXXMapper&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;extends&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;BaseMapper&lt;/span&gt;&lt;span class=&#34;token generics&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;&lt;/span&gt;XXX&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;而在旧版本中，由于没有用到 MybatisPlus ，自然写了很多的 删除语句 😱&lt;/p&gt;
+&lt;p&gt;而且由于对这个 Spring 的理解不够，出现了把 实现了同一个接口的不同子类注入到一个 Map 中，使用时再从其中获取的行为，最要命的是，这个 map 的 key 不是那些子类的名称，还写了很多 switch case …… 😶 来获取&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20211112221843944.png&#34; alt=&#34;image-20211112221843944&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;其实我们直接用 ApplicationContext 的 getBean 就可以获取到了 🐖&lt;/p&gt;
+&lt;h3 id=&#34;更新插入操作&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#更新插入操作&#34;&gt;#&lt;/a&gt; 更新，插入操作&lt;/h3&gt;
+&lt;p&gt;在更新或者插入成功后，还要将这些数据写到 Log 表 …… 😑&lt;/p&gt;
+&lt;p&gt;真是太魔幻了……   再坚持下就快到吐槽环节了😂&lt;/p&gt;
+&lt;p&gt;这里我们要考虑一个问题了 —— 插入数据时，ID 是插入数据前就有的，还是插入数据后才有的？🐷&lt;/p&gt;
+&lt;p&gt;在项目中我们使用的是这个 Oracle，借助它的 Sequence，我们可以先获取这个 ID  (select XX_SEQ.nextval from dual)，再设置到这个对象中去，然后再插入 DB 中 。&lt;/p&gt;
+&lt;p&gt;而在使用 MySQL 时，我们一般都是通过数据库的自增 ID，当数据插入后，再从这个对象中获取到这个 ID 的。&lt;/p&gt;
+&lt;p&gt;这也决定了我是在 AOP 的 Before 中记录下这些 ID ，还是在 AfterReturning 中去获取的。&lt;/p&gt;
+&lt;p&gt;其实一开始我是直接在 Before 中去记录的，后来考虑到这种情况后，才把它移到 AfterReturning 中去的，毕竟不管你先生成还是后生成，我都可以后获取，而且第二种模式兼容第一种模式 🐷&lt;/p&gt;
+&lt;p&gt;更新的话也有两种情况：&lt;br /&gt;
+（一）根据主键更新 ，这种最简单，我们直接根据主键查出之前的数据即可。&lt;br /&gt;
+（二）根据其他条件更新，这里我们自定义获取主键的方法以便复用上面的方法。&lt;/p&gt;
+&lt;p&gt;一般情况下，我们可以自动去获取这个 id，有些情况比较复杂的，就提供这个手动模式，自己调用 ThreadLocal 并耦合到代码中。&lt;/p&gt;
+&lt;p&gt;最后使用 Spring 的工具 BeanUtils ，将数据拷贝到日志对象中 BeanUtils.copyProperties (model, logModel); ，再通过 BaseMapper 的 insert 方法，将数据一条条插入到 Log 表。&lt;/p&gt;
+&lt;p&gt;到此，就完成了这个特殊的日志模块的优化了。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20211112222053399.png&#34; alt=&#34;image-20211112222053399&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;这个模块也为团队节省了 N 倍的开发时间，减少了很多冗余，无效的代码，也提高了这个代码的可维护性，受到同事的肯定当时 哈哈 😝 而且好像从这时候开始，老大找我做了一些通用模块的开发，比如 模板，邮件，Excel 等，有机会再来和小伙伴们分享下～😄。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3 id=&#34;吐槽&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#吐槽&#34;&gt;#&lt;/a&gt; 吐槽&lt;/h3&gt;
+&lt;p&gt;终于来到这里了，说实话，我到现在都觉得这个日志模块很 “&lt;strong&gt;特别&lt;/strong&gt;” 🐷，因为这个日志模块不像我平时了解过的那些，比如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;请求的入参，出参&lt;/li&gt;
+&lt;li&gt;业务&lt;/li&gt;
+&lt;li&gt;异常&lt;/li&gt;
+&lt;li&gt;JVM，Nginx，Tomcat  等等&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;而且奇怪的点还不是写入 DB 这个操作，而是针对大量的表做这备份的这个行为，比如 有这个表 A，然后我还要创建相应的日志表 LOG_A，而且只要你修改或者新增数据到表 A，那么 LOG_A 会将你更改后的 A 数据记录下来，删除的话，会将你删除前的 A 数据记录下来，删除成功后才记录到这个 LOG_A 。&lt;/p&gt;
+&lt;p&gt;而且这个 LOG_A 就比表 A 多了几个字段，比如这个&lt;strong&gt;操作行为&lt;/strong&gt;（ CRUD 中 的 CUD）和 &lt;strong&gt;操作 ID&lt;/strong&gt; （即请求 ID）。&lt;/p&gt;
+&lt;p&gt;这…… 简直就是&lt;strong&gt;究极备份&lt;/strong&gt;了🐖 （我实在想不出哪个词来形容了 哈哈 我只能说太慎重了！和 &lt;strong&gt;慎重勇者&lt;/strong&gt; 的主角有得一比）&lt;/p&gt;
+&lt;p&gt;这是我新的感悟 哈哈。&lt;/p&gt;
+&lt;p&gt;还记得那时的我十分抗拒把这个东西搬到新项目中，因为我觉得它很多余，这不就是把数据又写了一遍到另一个表中，而且我觉得用网上的例子就可以了啦，就记录下数据从什么修改成什么就好了，要那么多干嘛🤨。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20211112222404482.png&#34; alt=&#34;image-20211112222404482&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;我当时也憋不住，就向老大表达了我的疑惑，老大和我解释说这个日志模块是为了方便找 bug，找出哪些数据是有问题的，写这篇文章的时候我还特意再去请教了一下，他说他们的老项目用到了，但是具体怎么用也没说 🐖&lt;/p&gt;
+&lt;p&gt;为了搞清除这个东西的作用，额 我已经问了三个项目组的同事了，终于有个同事使用到了，就是说有一次数据出了问题，看代码看了好久都没有觉得哪里有问题，后来就是靠着这个请求 id，去 db 找那批数据出来分析，才找到问题的。&lt;/p&gt;
+&lt;p&gt;不过我听完还是觉得一言难尽，什么 bug 连 debug 都不能找出来，得靠分析这批数据了🙃 虽然在新项目中还是有它的身影，但是我想了好久都没有见到它发挥作用，可能这东西还是没用才好吧，甚至觉得带来负作用…… 😮&lt;/p&gt;
+&lt;h3 id=&#34;坑&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#坑&#34;&gt;#&lt;/a&gt; 坑&lt;/h3&gt;
+&lt;p&gt;印象中在重写这个模块时，遇到一个很有意思的问题  如下 👇&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token annotation punctuation&#34;&gt;@Mapper&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;interface&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;XXXMapper&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;extends&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;BaseMapper&lt;/span&gt;&lt;span class=&#34;token generics&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;&lt;/span&gt;XXX&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token annotation punctuation&#34;&gt;@Override&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token annotation punctuation&#34;&gt;@MethodLog&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;method &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;TableAction&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;D&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            model &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; XXX&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            logModel &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;LogXXX&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            logModelIdName &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;xxxId&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            mapper &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;XXXMapper&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            logMapper &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;LogXXXMapper&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;class&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;deleteById&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;Serializable&lt;/span&gt; id&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token annotation punctuation&#34;&gt;@Override&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token annotation punctuation&#34;&gt;@MethodLog&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;method &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;TableAction&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;U&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            model &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; XXX&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            logModel &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;LogXXX&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            logModelIdName &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;xxxId&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            mapper &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;XXXMapper&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            logMapper &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;LogXXXMapper&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;class&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;updateById&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token annotation punctuation&#34;&gt;@Param&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;Constants&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;ENTITY&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;XXX&lt;/span&gt; entity&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;毕竟我要将 MethodLog 注解挂到方法上，只能这样了。&lt;/p&gt;
+&lt;p&gt;同时，我才发现 &lt;strong&gt;接口在继承别的接口时，也是可以添加 @Override 注解&lt;/strong&gt;  ，不一定是常见的那种。&lt;/p&gt;
+&lt;p&gt;还有就是一开始我用 IDEA 帮我重写这个 updateById 方法时，但是它帮我省掉了 @Param (Constants.ENTITY) 注解，导致这个 update 操作无法生效，因为 MybatisPlus 中用了这个 “et” 来统一这个对象的别名～，不加的话无法匹配到。&lt;/p&gt;
+&lt;h3 id=&#34;最后&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#最后&#34;&gt;#&lt;/a&gt; 最后&lt;/h3&gt;
+&lt;p&gt;本文就分享到这里啦🐖 最近有好多人生小感悟 嘿嘿 下次再分享啦。之前定的那些文章还在计划里～在抓紧更啦！！😝&lt;/p&gt;
+&lt;p&gt;回忆起做这个日志模块的过程，特别是画一遍这个流程图的感觉真的是太酸爽了 ，也给小伙伴们提供一个思路，简单的 CRUD 就不要自己写啦，能用 AOP+MybatisPlus 去操作的话会简洁很多！&lt;/p&gt;
+&lt;p&gt;👉 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL0phdmE0eWUvc3ByaW5nYm9vdC1kZW1vLTR5ZQ==&#34;&gt;https://github.com/Java4ye/springboot-demo-4ye&lt;/span&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;喜欢的话可以 &lt;strong&gt;点赞 &amp;amp;&lt;/strong&gt; &lt;strong&gt;关注&lt;/strong&gt; 并 &lt;strong&gt;星标&lt;/strong&gt; 下公众号 &lt;strong&gt;Java4ye&lt;/strong&gt; 支持下 &lt;strong&gt;4ye&lt;/strong&gt; 呀😝，这样就可以第一时间收到更文消息啦🐷&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;我是 4ye 咱们下期应该…… 很快再见！！&lt;/strong&gt; 😆&lt;/p&gt;
+</content>
+        <category term="Spring家族" scheme="https://java4ye.cn/categories/Spring/" />
+        <updated>2022-01-20T14:57:28.898Z</updated>
+    </entry>
+    <entry>
+        <id>https://java4ye.cn/Spring/%E8%8A%B1%E4%BA%86%202%20%E4%B8%AA%E9%92%9F%E6%89%8D%E6%90%9E%E6%87%82%E8%BF%99%20AOP%20%E4%B8%BA%E5%95%A5%E6%B2%A1%E7%94%9F%E6%95%88%EF%BC%8C%E6%B0%B4%E5%8F%8B%E5%8D%B4%E7%9D%A1%E7%9D%80%E4%BA%86%E2%80%A6%E2%80%A6/</id>
+        <title>花了 2 个钟才搞懂这 AOP 为啥没生效，水友却睡着了……</title>
+        <link rel="alternate" href="https://java4ye.cn/Spring/%E8%8A%B1%E4%BA%86%202%20%E4%B8%AA%E9%92%9F%E6%89%8D%E6%90%9E%E6%87%82%E8%BF%99%20AOP%20%E4%B8%BA%E5%95%A5%E6%B2%A1%E7%94%9F%E6%95%88%EF%BC%8C%E6%B0%B4%E5%8F%8B%E5%8D%B4%E7%9D%A1%E7%9D%80%E4%BA%86%E2%80%A6%E2%80%A6/"/>
+        <content type="html">&lt;h3 id=&#34;springboot-中-aop-失效的原因&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#springboot-中-aop-失效的原因&#34;&gt;#&lt;/a&gt;  &lt;code&gt;Springboot&lt;/code&gt;  中  &lt;code&gt;AOP&lt;/code&gt;  失效的原因&lt;/h3&gt;
+&lt;p&gt;今天 4ye 来和小伙伴们分享一个小实战啦 ，冲冲冲～&lt;strong&gt;(。・∀・) ノ&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/MkMJ&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;实战回顾&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#实战回顾&#34;&gt;#&lt;/a&gt; 实战回顾&lt;/h3&gt;
+&lt;p&gt;（我居然拖到现在才写了这文章…… 😵）&lt;/p&gt;
+&lt;p&gt;主要是在一个周日（2021.6.6）在技术群里看到一个老哥在问&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;“怎么用切面来捕获自定义异常？”&lt;/strong&gt; (￣▽￣)&amp;quot;&lt;/p&gt;
+&lt;p&gt;我当时想的是，&lt;strong&gt;捕获异常&lt;/strong&gt;不是很常见的吗，平时经常用到这个&lt;strong&gt;全局异常捕获&lt;/strong&gt; ，于是就把自己  &lt;code&gt;GitHub&lt;/code&gt;  上的小例子发给他（主要是这个  &lt;code&gt;ControllerAdvice&lt;/code&gt;  注解），如图 👇&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210612084149929.png&#34; alt=&#34;image-20210612084149929&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;结果老哥过了一段时候就加了我，还问我有没有空帮忙看下，还想打电话问我，我当时的内心是&lt;/p&gt;
+&lt;p&gt;这么急的吗（瑟瑟发抖……）&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/796Jj&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;不过刚好在外面没时间，就婉拒了，后来晚上回来，愣是花了两个钟，才看懂 &lt;strong&gt;为啥这个 &lt;code&gt;AOP&lt;/code&gt;  没有生效？为啥没能捕获到异常？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/b2dKx&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;下面进入主题👉（&lt;strong&gt;项目整体介绍&lt;/strong&gt;）&lt;/p&gt;
+&lt;h3 id=&#34;maven项目结构图&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#maven项目结构图&#34;&gt;#&lt;/a&gt; maven 项目结构图&lt;/h3&gt;
+&lt;p&gt;在该项目中，maven 项目采用&lt;strong&gt;多模块构建&lt;/strong&gt;，&lt;strong&gt;父子结构&lt;/strong&gt;，由 &lt;strong&gt;父 maven&lt;/strong&gt; 来统一管理这些公共包，以及项目的整体版本属性配置等&lt;/p&gt;
+&lt;p&gt;里面有两个模块， &lt;code&gt;starter&lt;/code&gt;  模块和  &lt;code&gt;core&lt;/code&gt;  模块，其中  &lt;code&gt;starter&lt;/code&gt;  模块&lt;strong&gt;依赖&lt;/strong&gt;  &lt;code&gt;core&lt;/code&gt;  模块，整体如下图👇&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210612180832771.png&#34; alt=&#34;image-20210612180832771&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;子模块介绍&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#子模块介绍&#34;&gt;#&lt;/a&gt; 子模块介绍&lt;/h3&gt;
+&lt;p&gt;不知道小伙伴们看到上面的  &lt;code&gt;starter&lt;/code&gt;  有没有嗅到什么 ？&lt;/p&gt;
+&lt;p&gt;一开始我以为是常见的 &lt;strong&gt;自定义 starter&lt;/strong&gt; ，但是里面的内容却和我想的有点出入，居然只有一个  &lt;code&gt;spring.factories&lt;/code&gt;  文件，很明显这里使用到了 &lt;strong&gt;Springboot 的 SPI 机制&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;这个在我们之前的  👉 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9tcC53ZWl4aW4ucXEuY29tL3MvUUZHczU3cUpoc1JjcWwyWmRlZzJ0Zw==&#34;&gt;Springboot 自动装配原理探索&lt;/span&gt;  一文中有介绍到，小伙伴们可以前去了解看看～😄&lt;/p&gt;
+&lt;p&gt;对两个模块中的核心部分进行展开，结构如下👇&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210612182553858.png&#34; alt=&#34;image-20210612182553858&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;core 项目描述&lt;/strong&gt;：&lt;strong&gt;非 web 项目&lt;/strong&gt;里面只有  &lt;code&gt;service&lt;/code&gt;  ，没有启动类等&lt;/p&gt;
+&lt;p&gt;👉 由于 core 模块 &lt;strong&gt;不是 web 项目&lt;/strong&gt;！！，所以这个  &lt;code&gt;ControllerAdvice&lt;/code&gt;  是肯定不能用的，毕竟它是在  &lt;code&gt;web&lt;/code&gt;  包中的，一般我们在 &lt;strong&gt;web 项目&lt;/strong&gt;中配合这个 &lt;code&gt;@ExceptionHandler(Exception.class)&lt;/code&gt;  实现全局异常捕获，然后进行统一处理的。&lt;/p&gt;
+&lt;p&gt;👉 从 &lt;strong&gt;Springboot 的 SPI 机制&lt;/strong&gt; 中我们可以得知， &lt;code&gt;Springboot&lt;/code&gt;  项目启动时，会去扫描各个项目中的   &lt;code&gt;META-INF/spring.factories&lt;/code&gt;  文件（包括各个 jar 包），然后将其中的配置信息读取到内存中，而自动配置时会根据一定的条件对这些类进行筛选，最后创建符合的类，完成这个自动装配。&lt;/p&gt;
+&lt;p&gt;很明显，这里就是通过&lt;strong&gt;自动配置&lt;/strong&gt;，来实现相关  &lt;code&gt;bean&lt;/code&gt;  的注入。&lt;/p&gt;
+&lt;h3 id=&#34;配置类说明&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#配置类说明&#34;&gt;#&lt;/a&gt; 配置类说明&lt;/h3&gt;
+&lt;p&gt;那么，在了解了这些基本信息后，我们可以把目光移到这个  &lt;code&gt;xxxConfig&lt;/code&gt;  上，这里模仿了一个👇&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210706062207407.png&#34; alt=&#34;image-20210706062207407&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;紧接着就是项目中的切面配置了，例如以前写的小例子：👇&lt;/p&gt;
+&lt;p&gt;代码在我的  &lt;code&gt;GitHub&lt;/code&gt;  ：&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL1J5emVZYW5nL3NwcmluZ2Jvb3QtZGVtby00eWUuZ2l0&#34;&gt;https://github.com/RyzeYang/springboot-demo-4ye.git&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;通过&lt;strong&gt;异常通知&lt;/strong&gt;来捕获&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210707075730630.png&#34; alt=&#34;image-20210707075730630&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;除了上面这两个之外，项目中没有用到其他配置了！&lt;/p&gt;
+&lt;h3 id=&#34;问题来了&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#问题来了&#34;&gt;#&lt;/a&gt; 问题来了&lt;/h3&gt;
+&lt;p&gt;这个时候问题就来了，在定义了&lt;strong&gt;切面&lt;/strong&gt;之后，发现根本没有在项目中起作用！而其他都可以正常运行！&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/oq29&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;于是我一直在想，这是为啥呀，明明切面已经定义好了呀……&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/21be62ef513e07e85137a976c2feb565a0da1e2e.jpg@768w_576h_progressive.webp&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;终于，我开始了尝试，在  &lt;code&gt;yaml&lt;/code&gt;  配置文件中添加这个参数&lt;/p&gt;
+&lt;figure class=&#34;highlight yaml&#34;&gt;&lt;figcaption data-lang=&#34;YAML&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token key atrule&#34;&gt;spring&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token key atrule&#34;&gt;aop&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token key atrule&#34;&gt;auto&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token boolean important&#34;&gt;true&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;因为在印象中，这个默认是  &lt;code&gt;true&lt;/code&gt;  ，会默认使用这个  &lt;code&gt;@EnableAspectJAutoProxy&lt;/code&gt;  ， 不用我们手动去添加这个  &lt;code&gt;@EnableAspectJAutoProxy&lt;/code&gt;  注解（之前一直没有手动添加这个注解）🐖&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210706070907862.png&#34; alt=&#34;image-20210706070907862&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;结果也没什么效果……&lt;/p&gt;
+&lt;p&gt;于是乎，我决定手动添加到刚刚那个  &lt;code&gt;xxxConfig&lt;/code&gt;  配置类上，结果也没有什么作用……&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210706070415418.png&#34; alt=&#34;image-20210706070415418&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;终于，我才想起那个 &lt;strong&gt;切面配置&lt;/strong&gt; 没有被加载到这个  &lt;code&gt;Spring&lt;/code&gt;  中 ，于是我又在那个配置类  &lt;code&gt;xxxConfig&lt;/code&gt;  上添加了这个包扫描注解  &lt;code&gt;@ComponentScan(basePackages = &amp;quot;com.xxx.xxx&amp;quot;)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;结果终于成功了！&lt;/p&gt;
+&lt;p&gt;于是我赶在 &lt;strong&gt;23:59&lt;/strong&gt; 将修改后的文件发给那位老哥后，却发现他居然睡着了 哈哈哈&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210706072851025.png&#34; alt=&#34;image-20210706072851025&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/QQOJW&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;问题剖析&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#问题剖析&#34;&gt;#&lt;/a&gt; 问题剖析&lt;/h3&gt;
+&lt;p&gt;解决问题后，我们可以发现这个问题就下面两点👇&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;没有将切面注册到  &lt;code&gt;SpringIOC&lt;/code&gt;  容器中&lt;/li&gt;
+&lt;li&gt;没有使用这个  &lt;code&gt;@EnableAspectJAutoProxy&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;第一步&lt;/strong&gt;的解决也很简单，就是没有配置这个包扫描  &lt;code&gt;@ComponentScan(basePackages = &amp;quot;com.xxx.xxx&amp;quot;)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第二步&lt;/strong&gt;的解决嘛，就有点一头雾水了当时，毕竟之前也不需要我手动去添加的，而且从配置的描述信息中可以发现，即使我们没有配置，他也是默认开启的，会自动使用这个注解的～&lt;/p&gt;
+&lt;p&gt;那么小伙伴们知道&lt;strong&gt;第二步问题&lt;/strong&gt;的所在吗😄&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/697d7321b5d860982d189c95c992334fa6075dbe.jpg@942w_707h_progressive.webp&#34; alt=&#34;image-20210706072851025&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;嘿嘿，答案就出在这个&lt;strong&gt;自动配置&lt;/strong&gt; 身上，可以发现我们上面都没有使用到这个  &lt;code&gt;@EnableAutoConfiguration&lt;/code&gt;  注解，而在我们的  &lt;code&gt;SpringBootApplication&lt;/code&gt;  组合注解中，最重要的就是它了！ 通过它去开启了我们的这个&lt;strong&gt;自动装配&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;这个时候又得把这文章搬出来了 👉 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9tcC53ZWl4aW4ucXEuY29tL3MvUUZHczU3cUpoc1JjcWwyWmRlZzJ0Zw==&#34;&gt;Springboot 自动装配原理探索&lt;/span&gt; 哈哈&lt;/p&gt;
+&lt;p&gt;那么我们再来看看这个 &lt;strong&gt;AOP 自动装配的配置类&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;aop自动装配的配置类&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#aop自动装配的配置类&#34;&gt;#&lt;/a&gt; AOP 自动装配的配置类&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;AopAutoConfiguration&lt;/code&gt;  源码如下👇&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/AopAutoConfiguration.png&#34; alt=&#34;AopAutoConfiguration&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;开头有这么一个条件注解&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token annotation punctuation&#34;&gt;@ConditionalOnProperty&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;prefix &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;spring.aop&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; name &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;auto&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; havingValue &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;true&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; matchIfMissing &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token boolean&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;code&gt;havingValue = &amp;quot;true&amp;quot;&lt;/code&gt;  的意思是：值为  &lt;code&gt;true&lt;/code&gt;  时才有效&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;matchIfMissing = true&lt;/code&gt;  的意思是：没有配置这个属性时也能加载&lt;/p&gt;
+&lt;p&gt;接着让我们把目光移到第一个静态内部类：  &lt;code&gt;AspectJAutoProxyingConfiguration&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;如图👉：&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210706083310587.png&#34; alt=&#34;image-20210706083310587&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;这个我们也比较熟悉啦，  &lt;code&gt;proxyTargetClass&lt;/code&gt;  为  &lt;code&gt;true&lt;/code&gt;  时表示使用  &lt;code&gt;cglib&lt;/code&gt;  ， &lt;code&gt;false&lt;/code&gt;  使用  &lt;code&gt;JDK&lt;/code&gt;  动态代理&lt;/p&gt;
+&lt;p&gt;接着看最后的静态内部类：  &lt;code&gt;ClassProxyingConfiguration&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210706083542395.png&#34; alt=&#34;image-20210706083542395&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;可以发现它这里的条件是和   &lt;code&gt;AspectJAutoProxyingConfiguration&lt;/code&gt;   相反的，当没有这个  &lt;code&gt;Advice&lt;/code&gt;  类时，帮我们去注册这个代理到  &lt;code&gt;IOC&lt;/code&gt;  中&lt;/p&gt;
+&lt;p&gt;看完该 AOP 自动装配类后， 我们可以发现当我们使用  &lt;code&gt;@EnableAutoConfiguration&lt;/code&gt;  自动装配注解时并引入  &lt;code&gt;AOP&lt;/code&gt;  的包时，它会自动帮我们装配这个 &lt;code&gt;AopAutoConfiguration&lt;/code&gt;  ，而它里面就使用到了  &lt;code&gt;@EnableAspectJAutoProxy&lt;/code&gt;  ，所以我们一般不用手动添加该注解。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/JBM08&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;怎么测试&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#怎么测试&#34;&gt;#&lt;/a&gt; 怎么测试&lt;/h3&gt;
+&lt;p&gt;嘿嘿，再出一个小问题考考小伙伴😝&lt;/p&gt;
+&lt;p&gt;有没有细心的小伙伴发现上面的  &lt;code&gt;core&lt;/code&gt;  模块是没有用到这个  &lt;code&gt;SpringBootApplication&lt;/code&gt;  的，而且我们也没有用到这个  &lt;code&gt;@EnableAutoConfiguration&lt;/code&gt;  ，那么没有自动装配，这个  &lt;code&gt;SPI&lt;/code&gt;  显然也没啥作用 ，那么，我们在项目中要怎么测试呢～&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/Qzew4&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;答案就在 单元测试的注解身上  &lt;code&gt;@SpringBootTest(classes = xxxConfiguration.class)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;通过这个  &lt;code&gt;classes&lt;/code&gt;  ，我们直接指定并实例化这个配置类就可以了&lt;/p&gt;
+&lt;p&gt;我也是报错了才知道 哈哈😝&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210707072044403.png&#34; alt=&#34;image-20210707072044403&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;总结&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#总结&#34;&gt;#&lt;/a&gt; 总结&lt;/h3&gt;
+&lt;p&gt;嘿嘿，老规矩，画个图总结下啦👇&lt;/p&gt;
+&lt;h4 id=&#34;排查思路&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#排查思路&#34;&gt;#&lt;/a&gt; 排查思路&lt;/h4&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210707081614802.png&#34; alt=&#34;image-20210707081614802&#34; /&gt;&lt;/p&gt;
+&lt;h4 id=&#34;知识脑图&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#知识脑图&#34;&gt;#&lt;/a&gt; 知识脑图&lt;/h4&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210707084227045.png&#34; alt=&#34;image-20210707084227045&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;那么，本期就分享到这啦，喜欢的小伙伴记得&lt;strong&gt;点点赞呀&lt;/strong&gt;～下期看看情况分享下下面某一个叭😝&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Springboot 自定义 starter&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;利用 AOP 实现插件&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Spring 源码&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/YqojQ&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;最后&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#最后&#34;&gt;#&lt;/a&gt; 最后&lt;/h3&gt;
+&lt;p&gt;欢迎小伙伴们来一起探讨问题～&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果你觉得本篇文章还不错的话，那&lt;strong&gt;拜托再点点赞&lt;/strong&gt;支持一下呀😝&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;让我们开始这一场意外的相遇吧！~&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;欢迎留言！谢谢支持！ヾ (≧▽≦*) o 冲冲冲！！&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;我是 4ye 咱们下期应该…… 很快再见！！&lt;/strong&gt; 😆&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+        <category term="Spring家族" scheme="https://java4ye.cn/categories/Spring/" />
+        <updated>2022-01-20T14:57:28.894Z</updated>
+    </entry>
+    <entry>
+        <id>https://java4ye.cn/Spring/%E7%AE%80%E5%8D%95%E4%B8%A4%E6%AD%A5%E6%90%9E%E5%AE%9ASpringboot%E8%87%AA%E5%AE%9A%E4%B9%89starter/</id>
+        <title>简单两步搞定Springboot自定义starter.md</title>
+        <link rel="alternate" href="https://java4ye.cn/Spring/%E7%AE%80%E5%8D%95%E4%B8%A4%E6%AD%A5%E6%90%9E%E5%AE%9ASpringboot%E8%87%AA%E5%AE%9A%E4%B9%89starter/"/>
+        <content type="html">&lt;p&gt;小伙伴们早呀，最近是三伏天，真的是超级热 😱&lt;/p&gt;
+&lt;p&gt;先来一句～（哈哈哈）&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/ed29&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;springboot-自定义-starter&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#springboot-自定义-starter&#34;&gt;#&lt;/a&gt; Springboot 自定义 starter&lt;/h3&gt;
+&lt;p&gt;好了 进入主题，今天来和小伙伴们分享这个 &lt;strong&gt;Springboot 自定义 starter&lt;/strong&gt; 😄&lt;/p&gt;
+&lt;p&gt;直接来到  &lt;code&gt;Springboot&lt;/code&gt;  的官方文档中查看～&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kb2NzLnNwcmluZy5pby9zcHJpbmctYm9vdC9kb2NzL2N1cnJlbnQvcmVmZXJlbmNlL2h0bWwvZmVhdHVyZXMuaHRtbCNmZWF0dXJlcy5kZXZlbG9waW5nLWF1dG8tY29uZmlndXJhdGlvbg==&#34;&gt;https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.developing-auto-configuration&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210716063958607.png&#34; alt=&#34;image-20210716063958607&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;可以发现，它在这个&lt;strong&gt;自动配置&lt;/strong&gt;的目录中，而经过之前两篇文章的分析 👇&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;实战分析&lt;/strong&gt; 👉 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9tcC53ZWl4aW4ucXEuY29tL3MvSGtNS3VWczB4TkQ5b0JMV1hmLXJ4QQ==&#34;&gt;花了 2 个钟才搞懂这 AOP 为啥没生效，水友却睡着了……&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;原理分析&lt;/strong&gt; 👉 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9tcC53ZWl4aW4ucXEuY29tL3MvUUZHczU3cUpoc1JjcWwyWmRlZzJ0Zw==&#34;&gt;Springboot 自动装配原理探索&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;相信小伙伴们对这个自动配置和自定义 stater 有了初步的了解，那么我们来看看官网是真么说的叭&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Auto-configuration can be associated to a “starter” that provides the auto-configuration code as well as the typical libraries that you would use with it.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;就是说可以将自动配置类和依赖包进行打包，成为一个  &lt;code&gt;starter&lt;/code&gt;  ，来给其他人使用&lt;/p&gt;
+&lt;p&gt;看完官网后我发现貌似也没啥好写的🙃&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/Zy5n2&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;貌似就这一点点知识了……🐷&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;自动配置的各种条件注解&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;自定义 starter 的命名规范&lt;/strong&gt; 如：  &lt;code&gt;xxx-spring-boot-starter&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;那咱们就来看看这个小例子叭😄&lt;/p&gt;
+&lt;h3 id=&#34;思路&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#思路&#34;&gt;#&lt;/a&gt; 思路&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;准备自动配置类&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;配置  &lt;code&gt;spring.factories&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;部署到本地仓库&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在其他项目中引用&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;一自动配置类&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#一自动配置类&#34;&gt;#&lt;/a&gt; 一。自动配置类&lt;/h3&gt;
+&lt;p&gt;这里参考下  &lt;code&gt;redis&lt;/code&gt;  的自动配置类&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210717113904485.png&#34; alt=&#34;image-20210717113904485&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;这里使用到了很多&lt;strong&gt;条件注解&lt;/strong&gt;，比如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;@ConditionalOnClass(RedisOperations.class)&lt;/code&gt;   当存在这个  &lt;code&gt;RedisOperations.class&lt;/code&gt;  时，这个配置才有效，而这个配置又是在我们引入的 jar 中有的&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;@ConditionalOnMissingBean(name = &amp;quot;redisTemplate&amp;quot;)&lt;/code&gt;  当没有这个  &lt;code&gt;redisTemplate&lt;/code&gt;  的 bean 时有效&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;@ConditionalOnSingleCandidate(RedisConnectionFactory.class)&lt;/code&gt;  确保  &lt;code&gt;RedisConnectionFactory&lt;/code&gt;  创建之后才创建这个  &lt;code&gt;redisTemplate&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;然后，我们自己的就没那么复杂啦，就这么点～&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token annotation punctuation&#34;&gt;@EnableConfigurationProperties&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;HelloProperties&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;HelloAutoConfiguration&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token annotation punctuation&#34;&gt;@Bean&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token annotation punctuation&#34;&gt;@ConditionalOnMissingBean&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;HelloTest&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;HelloTest&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;getHelloTest&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;HelloTest&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;读取  &lt;code&gt;HelloProperties&lt;/code&gt;  配置类，然后创建  &lt;code&gt;HelloTest&lt;/code&gt;  这个  &lt;code&gt;bean&lt;/code&gt;  😄&lt;/p&gt;
+&lt;h3 id=&#34;二配置-springfactories&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#二配置-springfactories&#34;&gt;#&lt;/a&gt; 二。配置  &lt;code&gt;spring.factories&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;在  &lt;code&gt;META-INF/spring.factories&lt;/code&gt;  中进行配置 如：&lt;/p&gt;
+&lt;figure class=&#34;highlight properties&#34;&gt;&lt;figcaption data-lang=&#34;.properties&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token attr-name&#34;&gt;org.springframework.boot.autoconfigure.EnableAutoConfiguration&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token attr-value&#34;&gt;\&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  com.java4ye.demo.config.HelloAutoConfiguration&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;三部署到本地仓库&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#三部署到本地仓库&#34;&gt;#&lt;/a&gt; 三。部署到本地仓库&lt;/h3&gt;
+&lt;p&gt;参考官网的命名方式，配置我们的  &lt;code&gt;pom &lt;/code&gt; 文件👇&lt;/p&gt;
+&lt;figure class=&#34;highlight xml&#34;&gt;&lt;figcaption data-lang=&#34;XML&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;&lt;/span&gt;groupId&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt;org.4ye&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;/&lt;/span&gt;groupId&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;&lt;/span&gt;artifactId&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt;hello-spring-boot-starter&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;/&lt;/span&gt;artifactId&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;&lt;/span&gt;version&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt;1.0-SNAPSHOT&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;/&lt;/span&gt;version&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;打包方式选择  &lt;code&gt;&amp;lt;packaging&amp;gt;jar&amp;lt;/packaging&amp;gt;&lt;/code&gt;  就可以了&lt;/p&gt;
+&lt;p&gt;这里执行  &lt;code&gt;maven install&lt;/code&gt;  命令就可以了&lt;/p&gt;
+&lt;h4 id=&#34;细节注意&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#细节注意&#34;&gt;#&lt;/a&gt; 细节注意&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;package&lt;/strong&gt; 只打包，&lt;strong&gt;install&lt;/strong&gt; 会部署到本地仓库， &lt;strong&gt;deploy&lt;/strong&gt; 才会部署本地和远程仓库&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;spring-boot-configuration-processor&lt;/code&gt;  这个包的作用： &lt;strong&gt;给自定义的配置类生成元数据信息的&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;pom&lt;/code&gt;  文件中引入  &lt;code&gt;processor&lt;/code&gt;  时加入  &lt;code&gt;&amp;lt;optional&amp;gt;true&amp;lt;/optional&amp;gt;&lt;/code&gt;   ，给其他项目选择，不会增加不必要的依赖&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;四-其他项目中使用&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#四-其他项目中使用&#34;&gt;#&lt;/a&gt; 四。其他项目中使用&lt;/h3&gt;
+&lt;p&gt;在其他项目中引入该 jar 包即可～&lt;/p&gt;
+&lt;figure class=&#34;highlight xml&#34;&gt;&lt;figcaption data-lang=&#34;XML&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;&lt;/span&gt;dependency&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;&lt;/span&gt;groupId&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt;org.4ye&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;/&lt;/span&gt;groupId&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;&lt;/span&gt;artifactId&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt;hello-spring-boot-starter&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;/&lt;/span&gt;artifactId&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;&lt;/span&gt;version&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt;1.0-SNAPSHOT&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;/&lt;/span&gt;version&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;/&lt;/span&gt;dependency&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;代码的话呢，我放在 GitHub 上啦&lt;/p&gt;
+&lt;p&gt;地址👉 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL1J5emVZYW5nL3NwcmluZ2Jvb3QtZGVtby00eWU=&#34;&gt;https://github.com/RyzeYang/springboot-demo-4ye&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210718111521964.png&#34; alt=&#34;image-20210718111521964&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;总结&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#总结&#34;&gt;#&lt;/a&gt; 总结&lt;/h3&gt;
+&lt;p&gt;最后，老规矩，再画个图总结下～&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210718145335585.png&#34; alt=&#34;image-20210718145335585&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;最后&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#最后&#34;&gt;#&lt;/a&gt; 最后&lt;/h3&gt;
+&lt;p&gt;欢迎小伙伴们来一起探讨问题～&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果你觉得本篇文章还不错的话，那&lt;strong&gt;拜托再点点赞&lt;/strong&gt;支持一下呀😝&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;让我们开始这一场意外的相遇吧！~&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;欢迎留言！谢谢支持！ヾ (≧▽≦*) o 冲冲冲！！&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;我是 4ye 咱们下期应该…… 很快再见！！&lt;/strong&gt; 😆&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+        <category term="Spring家族" scheme="https://java4ye.cn/categories/Spring/" />
+        <updated>2022-01-20T14:57:28.889Z</updated>
+    </entry>
+    <entry>
+        <id>https://java4ye.cn/Spring/%E4%B8%89%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E4%BA%86%E8%A7%A3Spring%E4%B8%AD%E7%9A%84%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</id>
+        <title>三分钟快速了解Spring中的工厂模式</title>
+        <link rel="alternate" href="https://java4ye.cn/Spring/%E4%B8%89%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E4%BA%86%E8%A7%A3Spring%E4%B8%AD%E7%9A%84%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
+        <content type="html">&lt;h3 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h3&gt;
+&lt;p&gt;今天 4ye 来和小伙伴们分享下设计模式中的&lt;strong&gt;工厂模式&lt;/strong&gt;啦😄&lt;/p&gt;
+&lt;p&gt;顺便带来了下面三个问题，一起来看看叭😋&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210803224730150.png&#34; alt=&#34;image-20210803224730150&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;一工厂模式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#一工厂模式&#34;&gt;#&lt;/a&gt; 一。工厂模式&lt;/h3&gt;
+&lt;p&gt;我们都知道，设计模式有&lt;strong&gt; 23&lt;/strong&gt; 种，按照功能和使用场景可以分为三大类：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;创建型模式&lt;/li&gt;
+&lt;li&gt;结构型模式&lt;/li&gt;
+&lt;li&gt;行为型模式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;工厂设计模式（Factory Pattern）呢，就是一种很常见的设计模式，属于&lt;strong&gt;创建型模式&lt;/strong&gt;的，主要作用就是来&lt;strong&gt;创建对象&lt;/strong&gt;的～&lt;/p&gt;
+&lt;h4 id=&#34;原理图&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#原理图&#34;&gt;#&lt;/a&gt; 原理图&lt;/h4&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210802074017402.png&#34; alt=&#34;image-20210802074017402&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;先来看一个小例子叭😄&lt;/p&gt;
+&lt;h3 id=&#34;简单工厂模式非23种&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#简单工厂模式非23种&#34;&gt;#&lt;/a&gt; 简单工厂模式（非 23 种）&lt;/h3&gt;
+&lt;h4 id=&#34;原理图-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#原理图-2&#34;&gt;#&lt;/a&gt; 原理图&lt;/h4&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210802074241817.png&#34; alt=&#34;image-20210802074241817&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;例子的话，感觉也挺多的 比如各种品牌的电脑呀，手机呀，家具呀……&lt;/p&gt;
+&lt;p&gt;比如笔记本电脑的例子&lt;/p&gt;
+&lt;h4 id=&#34;抽取公共接口&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#抽取公共接口&#34;&gt;#&lt;/a&gt; 抽取公共接口&lt;/h4&gt;
+&lt;p&gt;这里就只提供一个返回品牌的接口&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;public interface ILaptop &amp;#123;
+    String brand();
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;接口实现类&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#接口实现类&#34;&gt;#&lt;/a&gt; 接口实现类&lt;/h4&gt;
+&lt;p&gt;这里就举两个例子～&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;public class HuaWeiLaptop implements ILaptop&amp;#123;
+    @Override
+    public String brand() &amp;#123;
+        return &amp;quot;HuaWei&amp;quot;;
+    &amp;#125;
+&amp;#125;
+
+public class MacLaptop implements ILaptop &amp;#123;
+    @Override
+    public String brand() &amp;#123;
+        return &amp;quot;Mac&amp;quot;;
+    &amp;#125;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;工厂类&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#工厂类&#34;&gt;#&lt;/a&gt; 工厂类&lt;/h4&gt;
+&lt;p&gt;最主要的就是这个工厂类了，我们把创建对象的能力将给它～&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;LaptopFactory&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;ILaptop&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;createLaptop&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; brand&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;switch&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;brand&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token keyword&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;HuaWei&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;HuaWeiLaptop&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token keyword&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;Mac&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;MacLaptop&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token keyword&#34;&gt;default&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h4 id=&#34;测试&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#测试&#34;&gt;#&lt;/a&gt; 测试&lt;/h4&gt;
+&lt;p&gt;就这样，我们就简单的完成了一个工厂模式的应用了～，以后创建对象就直接调用工厂的方法就可以了🐖&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;LaptopMain&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; args&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token class-name&#34;&gt;ILaptop&lt;/span&gt; hw &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;LaptopFactory&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;createLaptop&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;HuaWei&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt; brand &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; hw&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;brand&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token class-name&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;out&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;brand&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;当然，这个是最简单的工厂模式例子了，也叫做 &lt;strong&gt;简单工厂模式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;当然这个也有很明显的弊端，所以我们再来看看这个 &lt;strong&gt;工厂方法模式&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;工厂方法模式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#工厂方法模式&#34;&gt;#&lt;/a&gt; 工厂方法模式&lt;/h3&gt;
+&lt;h4 id=&#34;原理图-3&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#原理图-3&#34;&gt;#&lt;/a&gt; 原理图&lt;/h4&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210802075125221.png&#34; alt=&#34;image-20210802075125221&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;想想简单工厂的写法，将创建对象的所有操作都封装在一个工厂里，是不合理的，所以我们要进一步解耦&lt;/p&gt;
+&lt;h4 id=&#34;抽取工厂公共接口&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#抽取工厂公共接口&#34;&gt;#&lt;/a&gt; 抽取工厂公共接口&lt;/h4&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;interface&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;ILaptopFactory&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token class-name&#34;&gt;ILaptop&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;createLaptop&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h4 id=&#34;工厂实现类&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#工厂实现类&#34;&gt;#&lt;/a&gt; 工厂实现类&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Java&#34;&gt;public class HuaweiLaptopFactory implements ILaptopFactory&amp;#123;
+    @Override
+    public ILaptop createLaptop() &amp;#123;
+        return new HuaWeiLaptop();
+    &amp;#125;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;测试-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#测试-2&#34;&gt;#&lt;/a&gt; 测试&lt;/h4&gt;
+&lt;p&gt;简单改动上面测试案例的前两句代码即可&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;HuaweiLaptopFactory&lt;/span&gt; huaweiLaptopFactory &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;HuaweiLaptopFactory&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt; &lt;span class=&#34;token class-name&#34;&gt;ILaptop&lt;/span&gt; mac &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;  huaweiLaptopFactory&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;createLaptop&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;是不是很简单的就完成了这个工厂模式了😄&lt;/p&gt;
+&lt;h3 id=&#34;抽象工厂模式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#抽象工厂模式&#34;&gt;#&lt;/a&gt; 抽象工厂模式&lt;/h3&gt;
+&lt;h4 id=&#34;原理图-4&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#原理图-4&#34;&gt;#&lt;/a&gt; 原理图&lt;/h4&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210802075552904.png&#34; alt=&#34;image-20210802075552904&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;那么工厂嘛，肯定不止一条生产线，它肯定有其他的业务，比如手机呀，其他电器啥的。&lt;/p&gt;
+&lt;p&gt;所以我们再重复上面笔记本产品的例子，再建一些其他类，然后也通过工厂类去创建它即可。&lt;/p&gt;
+&lt;h4 id=&#34;抽象工厂&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#抽象工厂&#34;&gt;#&lt;/a&gt; 抽象工厂&lt;/h4&gt;
+&lt;p&gt;先定义一个抽象工厂&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;abstract&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;AbstractFactory&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;abstract&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;IPhone&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;createPhone&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;abstract&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;ILaptop&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;createLaptop&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h4 id=&#34;工厂实现类-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#工厂实现类-2&#34;&gt;#&lt;/a&gt; 工厂实现类&lt;/h4&gt;
+&lt;p&gt;也就多了一个而已呀～&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;HuaweiFactory&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;extends&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;AbstractFactory&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token annotation punctuation&#34;&gt;@Override&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;IPhone&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;createPhone&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;HuaWeiPhone&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token annotation punctuation&#34;&gt;@Override&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;ILaptop&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;createLaptop&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;HuaWeiLaptop&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;小结&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#小结&#34;&gt;#&lt;/a&gt; 小结&lt;/h3&gt;
+&lt;p&gt;在使用工厂模式时，我们可以发现从 &lt;strong&gt;简单工厂（非 23 种）&lt;/strong&gt; ——》 &lt;strong&gt;工厂方法&lt;/strong&gt; ——》&lt;strong&gt;抽象工厂&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;这是一个不断&lt;strong&gt;扩展，解耦&lt;/strong&gt;的过程，我们可以在项目种根据需要进行选择～&lt;/p&gt;
+&lt;p&gt;比如 产品多的话就选抽象工厂，单一的话就直接用工厂或者简单工厂就可以了😝&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/pj1yq&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;至此，我们了解到工厂模式是属于 23 中设计模式中的&lt;strong&gt;创建型模式&lt;/strong&gt;，主要用途就是&lt;strong&gt;创建对象&lt;/strong&gt;，同时方便程序解耦。&lt;/p&gt;
+&lt;p&gt;接着，我们再来想想  &lt;code&gt;Spring&lt;/code&gt;  中和&lt;strong&gt;工厂模式&lt;/strong&gt;有关的🐷&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210804213519712.png&#34; alt=&#34;image-20210804213519712&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;说到这里，你想到什么了呢？😄&lt;/p&gt;
+&lt;p&gt;不知道的话，就默念 Factory，Factory，Factory ……  哈哈哈&lt;/p&gt;
+&lt;p&gt;是不是脑海中一下子浮现出来了这两货👉   &lt;code&gt;BeanFactory&lt;/code&gt;  ，  &lt;code&gt;FactoryBean&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;从名字就可以看出这两货和工厂有关 哈哈（分别通过  &lt;code&gt;getBean&lt;/code&gt;  和  &lt;code&gt;getObject&lt;/code&gt;  获取对象）&lt;/p&gt;
+&lt;p&gt;那么我们先来介绍下他们叭😄&lt;/p&gt;
+&lt;h3 id=&#34;beanfactory&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#beanfactory&#34;&gt;#&lt;/a&gt; BeanFactory&lt;/h3&gt;
+&lt;h4 id=&#34;源码的第一句话&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#源码的第一句话&#34;&gt;#&lt;/a&gt; 源码的第一句话👇&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The root interface for accessing a Spring bean container. （IOC 的根接口）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;可以发现它是&lt;strong&gt;非常核心的组件&lt;/strong&gt;。&lt;/p&gt;
+&lt;h4 id=&#34;遵循严格的生命周期&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#遵循严格的生命周期&#34;&gt;#&lt;/a&gt; 遵循严格的&lt;strong&gt;生命周期&lt;/strong&gt;👇&lt;/h4&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210804212904552.png&#34; alt=&#34;image-20210804212904552&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;可以发现，通过  &lt;code&gt;BeanFactory&lt;/code&gt;  创建一个  &lt;code&gt;Bean&lt;/code&gt;  要经过非常严格的流程处理，很繁琐。&lt;/p&gt;
+&lt;h4 id=&#34;方法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#方法&#34;&gt;#&lt;/a&gt; 方法&lt;/h4&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210804221630497.png&#34; alt=&#34;image-20210804221630497&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;方法有很多，比如 获取别名呀，类型呀，是否是单例，原型等&lt;/p&gt;
+&lt;p&gt;通过  &lt;code&gt;getBean&lt;/code&gt;  去获取对象&lt;/p&gt;
+&lt;h4 id=&#34;主要作用&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#主要作用&#34;&gt;#&lt;/a&gt; 主要作用&lt;/h4&gt;
+&lt;p&gt;根据  &lt;code&gt;BeanDefinition&lt;/code&gt;  生成相应的  &lt;code&gt;Bean&lt;/code&gt;  对象。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210804222905598.png&#34; alt=&#34;image-20210804222905598&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;factorybean&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#factorybean&#34;&gt;#&lt;/a&gt; FactoryBean&lt;/h3&gt;
+&lt;h4 id=&#34;源码&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#源码&#34;&gt;#&lt;/a&gt; 源码&lt;/h4&gt;
+&lt;p&gt;可以发现就这么三个方法，一个小工厂～&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210804220029360.png&#34; alt=&#34;image-20210804220029360&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;通过  &lt;code&gt;getObject&lt;/code&gt;  方法来返回一个对象&lt;/p&gt;
+&lt;p&gt;获取对象时：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果  &lt;code&gt;beanName&lt;/code&gt;  没有加  &lt;code&gt;&amp;amp;&lt;/code&gt;  号，则获取的是&lt;strong&gt;泛型 T&lt;/strong&gt; 的对象。&lt;/li&gt;
+&lt;li&gt;如果添加了  &lt;code&gt;&amp;amp;&lt;/code&gt;  号，获取的是实现了  &lt;code&gt;FactoryBean&lt;/code&gt;  接口本身的对象，如  &lt;code&gt;EhCacheFactoryBean&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;而正因为它的小巧，它也被广泛的应用在&lt;strong&gt; Spring 内部&lt;/strong&gt;，以及&lt;strong&gt; Spring 与第三方框架或组件&lt;/strong&gt;的整合过程中。&lt;/p&gt;
+&lt;h3 id=&#34;三beanfactory-和-factorybean-的区别是什么&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#三beanfactory-和-factorybean-的区别是什么&#34;&gt;#&lt;/a&gt; 三.BeanFactory 和 FactoryBean 的区别是什么？&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;BeanFactory&lt;/code&gt;  是一个大工厂，是 IOC 容器的根基，有繁琐的  &lt;code&gt;bean&lt;/code&gt;  生命周期处理过程，可以生成出各种各样的  &lt;code&gt;Bean&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;FactoryBean&lt;/code&gt;  是一个小工厂，它自己也是一个  &lt;code&gt;Bean&lt;/code&gt;  ，但是可以生成其他  &lt;code&gt;Bean&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210804223826555.png&#34; alt=&#34;image-20210804223826555&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;最后一个问题～😄&lt;/p&gt;
+&lt;h3 id=&#34;二spring中工厂模式的使用&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#二spring中工厂模式的使用&#34;&gt;#&lt;/a&gt; 二.Spring 中工厂模式的使用&lt;/h3&gt;
+&lt;p&gt;既然都和工厂有关，那么我们就挑个软柿子捏一下叭😄&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/1628080678-80423.gif&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;h4 id=&#34;factorybean工厂模式图&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#factorybean工厂模式图&#34;&gt;#&lt;/a&gt; FactoryBean 工厂模式图&lt;/h4&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210804210507426.png&#34; alt=&#34;image-20210804210507426&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;可以发现和我们上面介绍的工厂方法模式一样，公共接口和不同的实现类，通过具体的工厂获取对象。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;BeanFactory&lt;/code&gt;  也是类似的，就不画啦&lt;/p&gt;
+&lt;h3 id=&#34;总结&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#总结&#34;&gt;#&lt;/a&gt; 总结&lt;/h3&gt;
+&lt;p&gt;画个图总结下啦👇&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210804225023263.png&#34; alt=&#34;image-20210804225023263&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;最后&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#最后&#34;&gt;#&lt;/a&gt; 最后&lt;/h3&gt;
+&lt;p&gt;欢迎小伙伴们来一起探讨问题～&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果你觉得本篇文章还不错的话，那&lt;strong&gt;拜托再点点赞&lt;/strong&gt;支持一下呀😝&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;让我们开始这一场意外的相遇吧！~&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;欢迎留言！谢谢支持！ヾ (≧▽≦*) o 冲冲冲！！&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;我是 4ye 咱们下期应该…… 很快再见！！&lt;/strong&gt; 😆&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+        <category term="Spring家族" scheme="https://java4ye.cn/categories/Spring/" />
+        <updated>2022-01-20T14:57:28.885Z</updated>
+    </entry>
+    <entry>
+        <id>https://java4ye.cn/Spring/%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E5%9C%A8Springboot%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/</id>
+        <title>四种引用类型在Springboot中的使用</title>
+        <link rel="alternate" href="https://java4ye.cn/Spring/%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E5%9C%A8Springboot%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+        <content type="html">&lt;p&gt;今天 &lt;strong&gt;4ye&lt;/strong&gt; 来和小伙伴们聊聊这个 &lt;strong&gt;强引用&lt;/strong&gt;，&lt;strong&gt;软引用&lt;/strong&gt;，&lt;strong&gt;弱引用&lt;/strong&gt;，&lt;strong&gt;幻象引用&lt;/strong&gt;（&lt;strong&gt;虚引用&lt;/strong&gt;）啦😝&lt;/p&gt;
+&lt;p&gt;嘿嘿，主要是最近读源码的时候经常看到，然后又想到自己第一次知道这个神奇的东西是在 &lt;strong&gt;2020-8-21&lt;/strong&gt;😄&lt;/p&gt;
+&lt;p&gt;为啥记得这么清楚呢？ 主要是翻到了 杨晓峰大佬的 pdf 哈哈😄&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/rdppo&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;这次我一定得记牢不搞混了  哈哈，一起来看看叭😝&lt;/p&gt;
+&lt;p&gt;&amp;lt;h3  style=&amp;quot;margin-top: 20px;margin-bottom: 20px;font-weight: bold;font-size: 17px;max-width: 100%;font-family: Optima-Regular, Optima, PingFangTC-Light, PingFangSC-light, PingFangTC-light;letter-spacing: 2px;white-space: normal;background-color: rgb(255, 255, 255);color: black;text-align: center;box-sizing: border-box !important;overflow-wrap: break-word !important;&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;padding-bottom: 2px;max-width: 100%;border-bottom: 2px solid rgba(71, 193, 119, 0.84);color: rgb(43, 43, 43);font-size: 22px;box-sizing: border-box !important;overflow-wrap: break-word !important;&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;margin: auto auto -8px;max-width: 100%;width: 30px;height: 30px;display: block;background-image: url(&amp;quot;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2ltZy5yeXpleWFuZy50b3AvamF2YTR5ZV9oZWFkZXIucG5n&#34;&gt;http://img.ryzeyang.top/java4ye_header.png&lt;/span&gt;&amp;quot;&lt;br /&gt;
+);background-position: center center;background-size: 30px;opacity: 1;background-repeat: no-repeat;box-sizing: border-box !important;overflow-wrap: break-word !important;&amp;quot;&amp;gt;&amp;lt;br style=&amp;quot;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;&amp;quot;&amp;gt;&amp;lt;/span &amp;gt; 文章概览 &amp;lt;/span&amp;gt;&amp;lt;/h3&amp;gt;&lt;/p&gt;
+&lt;p&gt;&amp;lt;p style=&amp;quot;line-height: 2em;margin-top: 20px;margin-left: 0px;margin-right: 0px;&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;color: rgba (71, 193, 119, 0.84);&amp;quot;&amp;gt;&amp;lt;em&amp;gt;&amp;lt;span style=&amp;quot;font-family: Optima-Regular, PingFangTC-light;font-size: 20px;&amp;quot;&amp;gt;&amp;lt;strong &amp;gt; 一. &amp;lt;/strong&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/em&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;em&amp;gt;&amp;lt;span style=&amp;quot;font-family: Optima-Regular, PingFangTC-light;font-size: 20px;&amp;quot;&amp;gt;&amp;lt;strong&amp;gt; &amp;lt;/strong&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/em&amp;gt;&amp;lt;strong style=&amp;quot;&lt;br /&gt;
+font-size: 18px;&lt;br /&gt;
+&amp;quot;&amp;gt; 四种引用的概念 &amp;lt;/strong&amp;gt;&amp;lt;strong style=&amp;quot;&amp;quot;&amp;gt;&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;&lt;/p&gt;
+&lt;p&gt;&amp;lt;p style=&amp;quot;line-height: 2em;margin-top: 20px;margin-left: 0px;margin-right: 0px;&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;color: rgba (71, 193, 119, 0.84);&amp;quot;&amp;gt;&amp;lt;em&amp;gt;&amp;lt;span style=&amp;quot;font-family: Optima-Regular, PingFangTC-light;font-size: 20px;&amp;quot;&amp;gt;&amp;lt;strong &amp;gt; 二. &amp;lt;/strong&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/em&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;em&amp;gt;&amp;lt;span style=&amp;quot;font-family: Optima-Regular, PingFangTC-light;font-size: 20px;&amp;quot;&amp;gt;&amp;lt;strong&amp;gt; &amp;lt;/strong&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/em&amp;gt;&amp;lt;strong style=&amp;quot;&lt;br /&gt;
+font-size: 18px;&lt;br /&gt;
+&amp;quot;&amp;gt; 对象可达性介绍 &amp;lt;/strong&amp;gt;&amp;lt;strong style=&amp;quot;&amp;quot;&amp;gt;&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;&lt;/p&gt;
+&lt;p&gt;&amp;lt;p style=&amp;quot;line-height: 2em;margin-top: 20px;margin-left: 0px;margin-right: 0px;&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;color: rgba (71, 193, 119, 0.84);&amp;quot;&amp;gt;&amp;lt;em&amp;gt;&amp;lt;span style=&amp;quot;font-family: Optima-Regular, PingFangTC-light;font-size: 20px;&amp;quot;&amp;gt;&amp;lt;strong &amp;gt; 三. &amp;lt;/strong&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/em&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;em&amp;gt;&amp;lt;span style=&amp;quot;font-family: Optima-Regular, PingFangTC-light;font-size: 20px;&amp;quot;&amp;gt;&amp;lt;strong&amp;gt; &amp;lt;/strong&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/em&amp;gt;&amp;lt;strong style=&amp;quot;&lt;br /&gt;
+font-size: 18px;&lt;br /&gt;
+&amp;quot;&amp;gt;Springboot 源码中的引用 &amp;lt;/strong&amp;gt;&amp;lt;strong style=&amp;quot;&amp;quot;&amp;gt;&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;&lt;/p&gt;
+&lt;p&gt;&amp;lt;h3  style=&amp;quot;margin-top: 20px;margin-bottom: 20px;font-weight: bold;font-size: 17px;max-width: 100%;font-family: Optima-Regular, Optima, PingFangTC-Light, PingFangSC-light, PingFangTC-light;letter-spacing: 2px;white-space: normal;background-color: rgb(255, 255, 255);color: black;text-align: center;box-sizing: border-box !important;overflow-wrap: break-word !important;&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;padding-bottom: 2px;max-width: 100%;border-bottom: 2px solid rgba(71, 193, 119, 0.84);color: rgb(43, 43, 43);font-size: 22px;box-sizing: border-box !important;overflow-wrap: break-word !important;&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;margin: auto auto -8px;max-width: 100%;width: 30px;height: 30px;display: block;background-image: url(&amp;quot;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2ltZy5yeXpleWFuZy50b3AvamF2YTR5ZV9oZWFkZXIucG5n&#34;&gt;http://img.ryzeyang.top/java4ye_header.png&lt;/span&gt;&amp;quot;&lt;br /&gt;
+);background-position: center center;background-size: 30px;opacity: 1;background-repeat: no-repeat;box-sizing: border-box !important;overflow-wrap: break-word !important;&amp;quot;&amp;gt;&amp;lt;br style=&amp;quot;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;&amp;quot;&amp;gt;&amp;lt;/span &amp;gt; 概念介绍 &amp;lt;/span&amp;gt;&amp;lt;/h3&amp;gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;不同的引用类型，主要体现的是&lt;strong&gt;对象不同的可达性（reachable）状态和对垃圾收集的影响&lt;/strong&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&amp;lt;p style=&amp;quot;line-height: 2em;margin-top: 20px;margin-left: 0px;margin-right: 0px;&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;color: rgba(71, 193, 119, 0.84);&amp;quot;&amp;gt;&amp;lt;em&amp;gt;&amp;lt;span style=&amp;quot;font-family: Optima-Regular, PingFangTC-light;font-size: 20px;&amp;quot;&amp;gt;&amp;lt;strong&amp;gt;01. &amp;lt;/strong&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/em&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;em&amp;gt;&amp;lt;span style=&amp;quot;font-family: Optima-Regular, PingFangTC-light;font-size: 20px;&amp;quot;&amp;gt;&amp;lt;strong&amp;gt; &amp;lt;/strong&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/em&amp;gt;&amp;lt;strong style=&amp;quot;&lt;br /&gt;
+font-size: 18px;&lt;br /&gt;
+&amp;quot;&amp;gt; 强引用 &amp;lt;/strong&amp;gt;&amp;lt;strong style=&amp;quot;&amp;quot;&amp;gt;&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;&lt;/p&gt;
+&lt;p&gt;这个就是我们创建的普通对象了～当该对象被显示地赋值为  &lt;code&gt;null&lt;/code&gt;  时，或者没有被其他存活的对象继续引用时，它就会成为垃圾收集器的目标，等待被收回&lt;/p&gt;
+&lt;p&gt;&amp;lt;p style=&amp;quot;line-height: 2em;margin-top: 20px;margin-left: 0px;margin-right: 0px;&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;color: rgba(71, 193, 119, 0.84);&amp;quot;&amp;gt;&amp;lt;em&amp;gt;&amp;lt;span style=&amp;quot;font-family: Optima-Regular, PingFangTC-light;font-size: 20px;&amp;quot;&amp;gt;&amp;lt;strong&amp;gt;02. &amp;lt;/strong&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/em&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;em&amp;gt;&amp;lt;span style=&amp;quot;font-family: Optima-Regular, PingFangTC-light;font-size: 20px;&amp;quot;&amp;gt;&amp;lt;strong&amp;gt; &amp;lt;/strong&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/em&amp;gt;&amp;lt;strong style=&amp;quot;&lt;br /&gt;
+font-size: 18px;&lt;br /&gt;
+&amp;quot;&amp;gt; 软引用 &amp;lt;/strong&amp;gt;&amp;lt;strong style=&amp;quot;&amp;quot;&amp;gt;&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;&lt;/p&gt;
+&lt;p&gt;软引用 (  &lt;code&gt;SoftReference&lt;/code&gt;  ) , 当&lt;strong&gt;内存不足&lt;/strong&gt; 时会被回收&lt;/p&gt;
+&lt;p&gt;比如&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210620220531336.png&#34; alt=&#34;image-20210620220531336&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;被回收后，这里会打印  &lt;code&gt;null&lt;/code&gt;  而不是  &lt;code&gt;Java4ye&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&amp;lt;p style=&amp;quot;line-height: 2em;margin-top: 20px;margin-left: 0px;margin-right: 0px;&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;color: rgba(71, 193, 119, 0.84);&amp;quot;&amp;gt;&amp;lt;em&amp;gt;&amp;lt;span style=&amp;quot;font-family: Optima-Regular, PingFangTC-light;font-size: 20px;&amp;quot;&amp;gt;&amp;lt;strong&amp;gt;03. &amp;lt;/strong&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/em&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;em&amp;gt;&amp;lt;span style=&amp;quot;font-family: Optima-Regular, PingFangTC-light;font-size: 20px;&amp;quot;&amp;gt;&amp;lt;strong&amp;gt; &amp;lt;/strong&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/em&amp;gt;&amp;lt;strong style=&amp;quot;&lt;br /&gt;
+font-size: 18px;&lt;br /&gt;
+&amp;quot;&amp;gt; 弱引用 &amp;lt;/strong&amp;gt;&amp;lt;strong style=&amp;quot;&amp;quot;&amp;gt;&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;&lt;/p&gt;
+&lt;p&gt;弱引用 (  &lt;code&gt;WeakReference&lt;/code&gt;  ) , 当 &lt;strong&gt;垃圾回收器&lt;/strong&gt; 进行垃圾回收时，无论内存足与否，它都会被垃圾回收器回收&lt;/p&gt;
+&lt;p&gt;比如&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210620221353830.png&#34; alt=&#34;image-20210620221353830&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;被回收后，这里也是会打印  &lt;code&gt;null&lt;/code&gt;  而不是  &lt;code&gt;Java4ye&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&amp;lt;p style=&amp;quot;line-height: 2em;margin-top: 20px;margin-left: 0px;margin-right: 0px;&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;color: rgba(71, 193, 119, 0.84);&amp;quot;&amp;gt;&amp;lt;em&amp;gt;&amp;lt;span style=&amp;quot;font-family: Optima-Regular, PingFangTC-light;font-size: 20px;&amp;quot;&amp;gt;&amp;lt;strong&amp;gt;04. &amp;lt;/strong&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/em&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;em&amp;gt;&amp;lt;span style=&amp;quot;font-family: Optima-Regular, PingFangTC-light;font-size: 20px;&amp;quot;&amp;gt;&amp;lt;strong&amp;gt; &amp;lt;/strong&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/em&amp;gt;&amp;lt;strong style=&amp;quot;&lt;br /&gt;
+font-size: 18px;&lt;br /&gt;
+&amp;quot;&amp;gt; 虚引用 &amp;lt;/strong&amp;gt;&amp;lt;strong style=&amp;quot;&amp;quot;&amp;gt;&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;&lt;/p&gt;
+&lt;p&gt;虚引用 (  &lt;code&gt;ReferenceQueue&lt;/code&gt;  ) , 这个也是随时会被回收，不过它的作用更像一个标记，当对象被回收时，它不为  &lt;code&gt;null&lt;/code&gt;  ，但是要注意，无论什么时候去调用 虚引用的  &lt;code&gt;get&lt;/code&gt;  方法，都只能获取到一个  &lt;code&gt;null&lt;/code&gt;  值。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;为一个对象设置虚引用关联的唯一目的就是能在这个对象被收集器回收时收到一个系统通知 —— &lt;strong&gt;&amp;lt;&amp;lt;深入理解 Java 虚拟机&amp;gt;&amp;gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这里引用 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3d3dy5qYXZhc2h1by5jb20vYXJ0aWNsZS9wLXp5dmRjYmhsLW5iLmh0bWw=&#34;&gt;http://www.javashuo.com/article/p-zyvdcbhl-nb.html&lt;/span&gt; 该文章的例子&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;User&lt;/span&gt; user &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;User&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;Java4ye&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;ReferenceQueue&lt;/span&gt;&lt;span class=&#34;token generics&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;User&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt; userReferenceQueue &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;ReferenceQueue&lt;/span&gt;&lt;span class=&#34;token generics&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// 创建 User 对象的虚引用&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;PhantomReference&lt;/span&gt;&lt;span class=&#34;token generics&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;User&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt; phantomReference &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;PhantomReference&lt;/span&gt;&lt;span class=&#34;token generics&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;user&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; userReferenceQueue&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// 去掉强引用&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;user &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;out&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;phantomReference&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// 手动触发 GC&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;gc&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;out&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;GC: &#34;&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; phantomReference&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;Reference&lt;/span&gt;&lt;span class=&#34;token generics&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;?&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;extends&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;User&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt; reference &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;try&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    reference &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; userReferenceQueue&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;remove&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1000&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;catch&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;InterruptedException&lt;/span&gt; e&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    e&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;printStackTrace&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;reference &lt;span class=&#34;token operator&#34;&gt;!=&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token class-name&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;out&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;对象User被回收了:&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&amp;lt;h3  style=&amp;quot;margin-top: 20px;margin-bottom: 20px;font-weight: bold;font-size: 17px;max-width: 100%;font-family: Optima-Regular, Optima, PingFangTC-Light, PingFangSC-light, PingFangTC-light;letter-spacing: 2px;white-space: normal;background-color: rgb(255, 255, 255);color: black;text-align: center;box-sizing: border-box !important;overflow-wrap: break-word !important;&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;padding-bottom: 2px;max-width: 100%;border-bottom: 2px solid rgba(71, 193, 119, 0.84);color: rgb(43, 43, 43);font-size: 22px;box-sizing: border-box !important;overflow-wrap: break-word !important;&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;margin: auto auto -8px;max-width: 100%;width: 30px;height: 30px;display: block;background-image: url(&amp;quot;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2ltZy5yeXpleWFuZy50b3AvamF2YTR5ZV9oZWFkZXIucG5n&#34;&gt;http://img.ryzeyang.top/java4ye_header.png&lt;/span&gt;&amp;quot;&lt;br /&gt;
+);background-position: center center;background-size: 30px;opacity: 1;background-repeat: no-repeat;box-sizing: border-box !important;overflow-wrap: break-word !important;&amp;quot;&amp;gt;&amp;lt;br style=&amp;quot;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;&amp;quot;&amp;gt;&amp;lt;/span &amp;gt; 对象可达性 &amp;lt;/span&amp;gt;&amp;lt;/h3&amp;gt;&lt;/p&gt;
+&lt;p&gt;那么 简单介绍完上面的 &lt;strong&gt;4&lt;/strong&gt; 种引用后，我们再来看看它的&lt;strong&gt;可达性&lt;/strong&gt;～&lt;/p&gt;
+&lt;p&gt;如图～&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210621083333189.png&#34; alt=&#34;image-20210621083333189&#34; /&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;强可达&lt;/strong&gt;： 比如 创建一个对象时，创建它的线程对该对象就是强可达&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;软可达&lt;/strong&gt;： 只能通过软引用访问&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;弱可达&lt;/strong&gt;： 只能通过弱引用访问&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;虚可达&lt;/strong&gt;： 当对象没有 &lt;strong&gt;强，软，弱&lt;/strong&gt; 引用关联时，并且  &lt;code&gt;finalize&lt;/code&gt;  过，就会进入该状态&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;不可达&lt;/strong&gt;： 意味着该对象可以被清除了。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;通过最开始的代码例子和上面的图（&lt;strong&gt;双向箭头&lt;/strong&gt;）我们还可以发现，&lt;strong&gt;软引用和弱引用和强引用&lt;/strong&gt;这三者间可以进行转换 ( 通过  &lt;code&gt;Reference&lt;/code&gt;  的  &lt;code&gt;get()&lt;/code&gt;  可获取到&lt;strong&gt;原对象&lt;/strong&gt;)，这意味着:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;对于软引用、弱引用之类，垃圾收集器可能会存在二次确认的问题，以保证处于弱引用状态的对象，没有改变为强引用。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在  &lt;code&gt;JDK8&lt;/code&gt;  中，还可以通过 指定参数打印引用的相关信息&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;-XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintReferenceGC&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在  &lt;code&gt;JDK8&lt;/code&gt;  中使用  &lt;code&gt;ParrallelGC&lt;/code&gt;  收集的垃圾回收日志 （大佬 pdf 中的例子）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;0.403: [GC (Allocation Failure) 0.871: [SoftReference, 0 refs, 0.0000393 secs]0.871: [WeakReference, 8 refs, 0.0000138 secs]0.871: [FinalReference, 4 refs, 0.0000094 secs]0.871:&lt;/p&gt;
+&lt;p&gt;[PhantomReference, 0 refs, 0 refs, 0.0000085 secs]0.871: [JNI Weak Reference, 0.0000071 secs][PSYoungGen: 76272K-&amp;gt;10720K(141824K)] 128286K-&amp;gt;128422K(316928K), 0.4683919 secs] [Times:&lt;/p&gt;
+&lt;p&gt;user=1.17 sys=0.03, real=0.47 secs]&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;再记录下这个点👇（哈哈 不知道啥时候才会用上～）&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;通过底层 API 来达到强引用&lt;/strong&gt;👍&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210621085544098.png&#34; alt=&#34;image-20210621085544098&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&amp;lt;h3  style=&amp;quot;margin-top: 20px;margin-bottom: 20px;font-weight: bold;font-size: 17px;max-width: 100%;font-family: Optima-Regular, Optima, PingFangTC-Light, PingFangSC-light, PingFangTC-light;letter-spacing: 2px;white-space: normal;background-color: rgb(255, 255, 255);color: black;text-align: center;box-sizing: border-box !important;overflow-wrap: break-word !important;&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;padding-bottom: 2px;max-width: 100%;border-bottom: 2px solid rgba(71, 193, 119, 0.84);color: rgb(43, 43, 43);font-size: 22px;box-sizing: border-box !important;overflow-wrap: break-word !important;&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;margin: auto auto -8px;max-width: 100%;width: 30px;height: 30px;display: block;background-image: url(&amp;quot;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2ltZy5yeXpleWFuZy50b3AvamF2YTR5ZV9oZWFkZXIucG5n&#34;&gt;http://img.ryzeyang.top/java4ye_header.png&lt;/span&gt;&amp;quot;&lt;br /&gt;
+);background-position: center center;background-size: 30px;opacity: 1;background-repeat: no-repeat;box-sizing: border-box !important;overflow-wrap: break-word !important;&amp;quot;&amp;gt;&amp;lt;br style=&amp;quot;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;&amp;quot;&amp;gt;&amp;lt;/span&amp;gt;Springboot 源码中的使用 &amp;lt;/span&amp;gt;&amp;lt;/h3&amp;gt;&lt;/p&gt;
+&lt;p&gt;嘿嘿  终于来到重点了 ，正如开头提到的～&lt;strong&gt;4ye&lt;/strong&gt; 也是在  &lt;code&gt;Springboot&lt;/code&gt;  源码中看到这个&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ConcurrentReferenceHashMap&lt;/code&gt;  才想起要写一下这篇文章滴✍&lt;/p&gt;
+&lt;p&gt;那么这个  &lt;code&gt;ConcurrentReferenceHashMap&lt;/code&gt;   到底有什么作用呢？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;ConcurrentReferenceHashMap&lt;/code&gt;  &lt;strong&gt;能指定所存放对象的引用级别&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;默认情况下是 &lt;strong&gt;软引用级别&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210621122940290.png&#34; alt=&#34;image-20210621122940290&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;比如 在 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9tcC53ZWl4aW4ucXEuY29tL3MvUUZHczU3cUpoc1JjcWwyWmRlZzJ0Zw==&#34;&gt;Springboot 自动装配原理探索&lt;/span&gt; 一文中提到的  &lt;code&gt;Springboot SPI 机制&lt;/code&gt;  其中的主角：  &lt;code&gt;SpringFactoriesLoader&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;源码如下：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210621092032074.png&#34; alt=&#34;image-20210621092032074&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;还有&lt;strong&gt;自动配置过程中的注解扫描&lt;/strong&gt;  &lt;code&gt;AnnotationsScanner&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210621093124042.png&#34; alt=&#34;image-20210621093124042&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;以及在 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9tcC53ZWl4aW4ucXEuY29tL3MvRDBudXZkMUlXdTRuNU9xaGVzdVBqQQ==&#34;&gt;万字长文，带你快速上手这些池化技术！&lt;/span&gt; 一文中出现的 &lt;strong&gt;异步任务线程池&lt;/strong&gt;：  &lt;code&gt;ThreadPoolTaskExecutor&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;源码如下：&lt;/strong&gt; （可以看到这里指明了是 &lt;strong&gt;弱引用级别&lt;/strong&gt;）&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210621092723147.png&#34; alt=&#34;image-20210621092723147&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&amp;lt;h3  style=&amp;quot;margin-top: 20px;margin-bottom: 20px;font-weight: bold;font-size: 17px;max-width: 100%;font-family: Optima-Regular, Optima, PingFangTC-Light, PingFangSC-light, PingFangTC-light;letter-spacing: 2px;white-space: normal;background-color: rgb(255, 255, 255);color: black;text-align: center;box-sizing: border-box !important;overflow-wrap: break-word !important;&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;padding-bottom: 2px;max-width: 100%;border-bottom: 2px solid rgba(71, 193, 119, 0.84);color: rgb(43, 43, 43);font-size: 22px;box-sizing: border-box !important;overflow-wrap: break-word !important;&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;margin: auto auto -8px;max-width: 100%;width: 30px;height: 30px;display: block;background-image: url(&amp;quot;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2ltZy5yeXpleWFuZy50b3AvamF2YTR5ZV9oZWFkZXIucG5n&#34;&gt;http://img.ryzeyang.top/java4ye_header.png&lt;/span&gt;&amp;quot;&lt;br /&gt;
+);background-position: center center;background-size: 30px;opacity: 1;background-repeat: no-repeat;box-sizing: border-box !important;overflow-wrap: break-word !important;&amp;quot;&amp;gt;&amp;lt;br style=&amp;quot;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;&amp;quot;&amp;gt;&amp;lt;/span &amp;gt; 总结 &amp;lt;/span&amp;gt;&amp;lt;/h3&amp;gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;看完上面的例子，觉得可以模仿下  &lt;code&gt;Springboot&lt;/code&gt;  的  &lt;code&gt;ConcurrentReferenceHashMap&lt;/code&gt;   ，对对象进行一个合理的存储，间接地优化 &lt;code&gt;jvm&lt;/code&gt;  ，提高垃圾回收的效率。&lt;/li&gt;
+&lt;li&gt;这两个别搞混了： &lt;strong&gt;软引用，内存不足时回收&lt;/strong&gt;；&lt;strong&gt;弱引用，在进行垃圾回收时，不管内存足与否，都会被回收，&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;最后&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#最后&#34;&gt;#&lt;/a&gt; 最后&lt;/h2&gt;
+&lt;p&gt;欢迎小伙伴们来一起探讨问题～&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果你觉得本篇文章还不错的话，那&lt;strong&gt;拜托再点点赞&lt;/strong&gt;支持一下呀😝&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;让我们开始这一场意外的相遇吧！~&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;欢迎留言！谢谢支持！ヾ (≧▽≦*) o 冲冲冲！！&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;我是 4ye 咱们下期应该…… 很快再见！！&lt;/strong&gt; 😆&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+        <category term="Spring家族" scheme="https://java4ye.cn/categories/Spring/" />
+        <updated>2022-01-20T14:57:28.881Z</updated>
+    </entry>
+    <entry>
+        <id>https://java4ye.cn/Spring/AOP%20%E6%8F%92%E4%BB%B6%E5%B0%B1%E8%BF%99%EF%BC%9F%E4%B8%8A%E6%89%8B%E4%B8%8D%E7%94%A8%E4%B8%A4%E5%88%86%E9%92%9F%EF%BC%81%EF%BC%81%20/</id>
+        <title>AOP 插件就这？上手不用两分钟！！</title>
+        <link rel="alternate" href="https://java4ye.cn/Spring/AOP%20%E6%8F%92%E4%BB%B6%E5%B0%B1%E8%BF%99%EF%BC%9F%E4%B8%8A%E6%89%8B%E4%B8%8D%E7%94%A8%E4%B8%A4%E5%88%86%E9%92%9F%EF%BC%81%EF%BC%81%20/"/>
+        <content type="html">&lt;p&gt;小伙伴们好呀，今天 4ye 来分享这个 &lt;strong&gt;Spring AOP 插件篇&lt;/strong&gt; 啦😝&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210917225204079.png&#34; alt=&#34;image-20210917225204079&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;项目一览&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#项目一览&#34;&gt;#&lt;/a&gt; 项目一览&lt;/h3&gt;
+&lt;p&gt;这个 demo 分为两个模块 ：&lt;/p&gt;
+&lt;p&gt;👉 &lt;strong&gt;插件模块&lt;/strong&gt; &lt;strong&gt;springboot-aop-plugin&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;👉 &lt;strong&gt;业务模块&lt;/strong&gt; &lt;strong&gt;springboot-aop-plugin-used&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210917073319160.png&#34; alt=&#34;image-20210917073319160&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;模块功能介绍&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#模块功能介绍&#34;&gt;#&lt;/a&gt; 模块功能介绍&lt;/h3&gt;
+&lt;p&gt;👉 &lt;strong&gt;插件模块&lt;/strong&gt; &lt;strong&gt;springboot-aop-plugin&lt;/strong&gt; 里面提供两个插件&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;插件 A MethodCountingTimesPlugin  ： &lt;strong&gt;统计方法调用次数&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;插件 B MethodSpendTimePlugin  ： &lt;strong&gt;计算调用方法所花费的时间&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;👉 &lt;strong&gt;业务模块&lt;/strong&gt; &lt;strong&gt;springboot-aop-plugin-used&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;提供业务 API&lt;/li&gt;
+&lt;li&gt;插件配置类，主要负责 &lt;strong&gt;解析&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;插件工厂，主要负责 &lt;strong&gt;加载，激活和停用插件&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210917104638902.png&#34; alt=&#34;image-20210917104638902&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;使用&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用&#34;&gt;#&lt;/a&gt; 使用&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;将 &lt;strong&gt;插件模块&lt;/strong&gt; 打包成一个 jar 包，然后在 &lt;strong&gt;业务模块&lt;/strong&gt; 中配置好 &lt;strong&gt;plugins.json&lt;/strong&gt; 的 &lt;strong&gt;jar&lt;/strong&gt; 包地址，随后 &lt;strong&gt;激活 / 停用插件&lt;/strong&gt;，就可以在控制台看到不同的输出效果啦😄&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;原理图&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#原理图&#34;&gt;#&lt;/a&gt; 原理图 👇&lt;/h3&gt;
+&lt;p&gt;主要知识点&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;类加载器&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Spring AOP 编程式&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210917075225933.png&#34; alt=&#34;image-20210917075225933&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;效果演示&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#效果演示&#34;&gt;#&lt;/a&gt; 效果演示&lt;/h3&gt;
+&lt;h4 id=&#34;api-如下&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#api-如下&#34;&gt;#&lt;/a&gt; API 如下🐖&lt;/h4&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210917075418463.png&#34; alt=&#34;image-20210917075418463&#34; /&gt;&lt;/p&gt;
+&lt;h4 id=&#34;激活插件1&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#激活插件1&#34;&gt;#&lt;/a&gt; 激活插件 1&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;调用方法时会统计该方法的调用次数&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210917081423938.png&#34; alt=&#34;image-20210917081423938&#34; /&gt;&lt;/p&gt;
+&lt;h4 id=&#34;关闭插件1&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#关闭插件1&#34;&gt;#&lt;/a&gt; 关闭插件 1&lt;/h4&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210917081656876.png&#34; alt=&#34;image-20210917081656876&#34; /&gt;&lt;/p&gt;
+&lt;h4 id=&#34;再次激活插件1&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#再次激活插件1&#34;&gt;#&lt;/a&gt; 再次激活插件 1&lt;/h4&gt;
+&lt;p&gt;顺便激活插件 2 效果&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210917082018859.png&#34; alt=&#34;image-20210917082018859&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;还挺好玩的 哈哈 其他就等小伙伴们自己优化了 🐷&lt;/p&gt;
+&lt;h3 id=&#34;主要源码说明&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#主要源码说明&#34;&gt;#&lt;/a&gt; 主要源码说明&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;MethodCountingTimesPlugin&lt;/strong&gt; 插件通过实现这个  &lt;strong&gt;MethodBeforeAdvice&lt;/strong&gt; 来达到 &lt;strong&gt;@Before&lt;/strong&gt; 注解的效果&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;MethodSpendTimePlugin&lt;/strong&gt; 插件通过实现这个  &lt;strong&gt;MethodInterceptor&lt;/strong&gt; 来达到 &lt;strong&gt;@Around&lt;/strong&gt; 注解的效果&lt;/p&gt;
+&lt;p&gt;这部分的知识点可以看上篇文章 👉&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9tcC53ZWl4aW4ucXEuY29tL3MvTjF0LXQwRmhRaGR6SW9fbGpoeEJiUQ==&#34;&gt;《Spring AOP 内功修炼！！》&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;代码也很简单，就不多介绍啦👇&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210917083716566.png&#34; alt=&#34;image-20210917083716566&#34; /&gt;&lt;/p&gt;
+&lt;h4 id=&#34;pluginconfig&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#pluginconfig&#34;&gt;#&lt;/a&gt; PluginConfig&lt;/h4&gt;
+&lt;p&gt;这个配置类呢，就是在初始化时去加载，解析这个配置文件 &lt;strong&gt;plugins.json&lt;/strong&gt;，然后放到这个 map 中&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210917084858226.png&#34; alt=&#34;image-20210917084858226&#34; /&gt;&lt;/p&gt;
+&lt;h4 id=&#34;defaultpluginfactory&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#defaultpluginfactory&#34;&gt;#&lt;/a&gt; DefaultPluginFactory&lt;/h4&gt;
+&lt;p&gt;激活插件方法如下 👇&lt;/p&gt;
+&lt;p&gt;也就是通过这个 &lt;strong&gt;编程式 AOP&lt;/strong&gt; 来实现&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210917085051178.png&#34; alt=&#34;image-20210917085051178&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;完整项目在 Github 上，链接在文末自取就可以啦～&lt;/p&gt;
+&lt;p&gt;接下来说说搭建这个小 demo 遇到的坑🕳&lt;/p&gt;
+&lt;h3 id=&#34;坑&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#坑&#34;&gt;#&lt;/a&gt; 坑🕳&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;打包插件模块，这里我们用到的是 spring-boot-maven-plugin 插件，打包时会去查找有 &lt;strong&gt;main&lt;/strong&gt; 方法的类，并修改 jar 包结构为 &lt;strong&gt;BOOT-INF/classes/&lt;/strong&gt; ，这样打出来的包，会导致加载插件时无法解析出增强类，一直都是  &lt;strong&gt;ClassNotFoundException&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ClassLoader 的不同，本次 demo 使用的是 JDK11，而在 JDK11 中，&lt;strong&gt;AppclassLoader&lt;/strong&gt; 无法再转换为 &lt;strong&gt;URLClassLoader&lt;/strong&gt;  ，区别如下👇&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;JDK11&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210917115044837.png&#34; alt=&#34;image-20210917115044837&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;JDK8&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210917115117083.png&#34; alt=&#34;image-20210917115117083&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;所以在 &lt;strong&gt;JDK11&lt;/strong&gt; 中无法通过将 &lt;strong&gt;AppclassLoader&lt;/strong&gt; 转换成 &lt;strong&gt;URLClassLoader&lt;/strong&gt; 去判断有没有加载过某个 jar 包&lt;/p&gt;
+&lt;h3 id=&#34;问题思考&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#问题思考&#34;&gt;#&lt;/a&gt; 问题思考&lt;/h3&gt;
+&lt;p&gt;完成这个 demo 后，4ye 对 AOP 又有了以下的这些思考～&lt;/p&gt;
+&lt;h4 id=&#34;一-aop-发生的条件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#一-aop-发生的条件&#34;&gt;#&lt;/a&gt; 一. AOP 发生的条件&lt;/h4&gt;
+&lt;p&gt;我们都知道 &lt;strong&gt;AOP&lt;/strong&gt; 是 &lt;strong&gt;面向切面编程&lt;/strong&gt; ，所以我们得告诉它&lt;strong&gt;往哪里切&lt;/strong&gt;，才有机会创建这个 &lt;strong&gt;代理对象&lt;/strong&gt; 出来～&lt;/p&gt;
+&lt;p&gt;比如 Spring 提供的这几个注解&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;事务 &lt;strong&gt;@Transactional&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;异步 &lt;strong&gt;@Async&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;缓存 &lt;strong&gt;@Cacheable&lt;/strong&gt; , &lt;strong&gt;@CacheEvict&lt;/strong&gt; ，&lt;strong&gt;@CachePut&lt;/strong&gt; , &lt;strong&gt;@Caching&lt;/strong&gt; 等&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这些在 &lt;strong&gt;spring-aspects&lt;/strong&gt; 模块中&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;关于 &lt;strong&gt;Spring&lt;/strong&gt; 的模块可以参考这篇文章  👉 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9tcC53ZWl4aW4ucXEuY29tL3MvVlB5aFNiaVh2UHBBRVNQdGs1d203Zw==&#34;&gt;《Spring 的这七大模块你了解吗？》&lt;/span&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;同时，创建代理对象时，&lt;strong&gt;CGLIB&lt;/strong&gt; 只能代理 &lt;strong&gt;非 final&lt;/strong&gt; 类中的 &lt;strong&gt;非 final&lt;/strong&gt;，&lt;strong&gt;非 static&lt;/strong&gt; 方法。&lt;/p&gt;
+&lt;h4 id=&#34;二-为啥采用编程式的aop&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#二-为啥采用编程式的aop&#34;&gt;#&lt;/a&gt; 二。为啥采用编程式的 AOP&lt;/h4&gt;
+&lt;p&gt;这就突出它的优点啦！毕竟编程式才是最灵活的 哈哈。就像 &lt;strong&gt;编程式事务&lt;/strong&gt; 一样，你可以控制事务的粒度，在编程式 AOP 中，你可以控制 &lt;strong&gt;Advice&lt;/strong&gt; 的启动，停止。&lt;/p&gt;
+&lt;h4 id=&#34;三-优化地方&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#三-优化地方&#34;&gt;#&lt;/a&gt; 三。优化地方&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;MethodCountingTimesPlugin&lt;/strong&gt; 中是通过 map 来存放不同方法的调用次数的，这个 key 需要考虑怎么和方法挂钩起来，并且唯一 （待优化）&lt;/li&gt;
+&lt;li&gt;实现配置文件的热更新，以及刷新缓存的 Advice （待优化）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;新发现&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#新发现&#34;&gt;#&lt;/a&gt; 新发现&lt;/h3&gt;
+&lt;p&gt;我们这篇的主题是插件，插件&lt;strong&gt;可插拔&lt;/strong&gt;的特点十分方便，同时，我们利用 &lt;strong&gt;ClassLoader&lt;/strong&gt;  实现了 &lt;strong&gt;热加载！&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;但是呢，我了解到它不仅仅有这个功能，它还可以实现对 &lt;strong&gt;class 文件的加解密&lt;/strong&gt;，同时 4ye 也是间接了解到这个 阿里的 &lt;strong&gt;pandora&lt;/strong&gt; 以及解锁了新的源码篇章 &lt;strong&gt;spring boot devtools&lt;/strong&gt; ，很有意思的，争取早点分享出来 嘿嘿 😋&lt;/p&gt;
+&lt;h3 id=&#34;总结&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#总结&#34;&gt;#&lt;/a&gt; 总结&lt;/h3&gt;
+&lt;p&gt;通过该项目来实现这个 AOP 插件，学会了一项装 13 技能 哈哈哈&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20210917230508134.png&#34; alt=&#34;image-20210917230508134&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;最后&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#最后&#34;&gt;#&lt;/a&gt; 最后&lt;/h3&gt;
+&lt;p&gt;本文就分享到这里啦🐖&lt;/p&gt;
+&lt;p&gt;仓库地址 👇  （&lt;strong&gt;感谢每一颗 star ！&lt;/strong&gt;）&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL0phdmE0eWUvc3ByaW5nYm9vdC1kZW1vLTR5ZQ==&#34;&gt;https://github.com/Java4ye/springboot-demo-4ye&lt;/span&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;喜欢的话可以 &lt;strong&gt;关注&lt;/strong&gt; 并 &lt;strong&gt;星标&lt;/strong&gt; 下公众号 &lt;strong&gt;Java4ye&lt;/strong&gt; 支持下 &lt;strong&gt;4ye&lt;/strong&gt; 呀😝，这样就可以第一时间收到更文消息啦🐷&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;我是 4ye 咱们下期应该…… 很快再见！！&lt;/strong&gt; 😆&lt;/p&gt;
+</content>
+        <category term="Spring家族" scheme="https://java4ye.cn/categories/Spring/" />
+        <updated>2022-01-20T14:57:28.876Z</updated>
+    </entry>
+    <entry>
+        <id>https://java4ye.cn/Study/%E8%BF%995%E4%B8%AAGitHub%E9%A1%B9%E7%9B%AE+3%E4%B8%AA%E7%BD%91%E7%AB%99%EF%BC%8C%E5%8A%A9%E4%BD%A0%E4%B8%80%E9%A3%9E%E5%86%B2%E5%A4%A9%EF%BC%81/</id>
         <title>这5个GitHub项目+3个网站，助你一飞冲天！</title>
-        <link rel="alternate" href="Study/这5个GitHub项目+3个网站，助你一飞冲天！/"/>
+        <link rel="alternate" href="https://java4ye.cn/Study/%E8%BF%995%E4%B8%AAGitHub%E9%A1%B9%E7%9B%AE+3%E4%B8%AA%E7%BD%91%E7%AB%99%EF%BC%8C%E5%8A%A9%E4%BD%A0%E4%B8%80%E9%A3%9E%E5%86%B2%E5%A4%A9%EF%BC%81/"/>
         <content type="html">&lt;p&gt;小伙伴们周末好呀，这次来更新一波学习资源啦～👍&lt;/p&gt;
 &lt;p&gt;之前推荐过一些书，这次我们就来看看 &lt;strong&gt;4ye&lt;/strong&gt; 平时常关顾的一些学习网站叭！😋&lt;/p&gt;
 &lt;p&gt;（同时会更新在菜单栏的 &lt;strong&gt;宝藏资源&lt;/strong&gt; 中，方便查找）&lt;/p&gt;
@@ -187,13 +1215,13 @@
 &lt;p&gt;&lt;strong&gt;我是 4ye 咱们下期应该…… 很快再见！！&lt;/strong&gt; 😆&lt;/p&gt;
 &lt;/blockquote&gt;
 </content>
-        <category term="学习资源" scheme="/categories/Study/" />
+        <category term="学习资源" scheme="https://java4ye.cn/categories/Study/" />
         <updated>2022-01-16T15:30:57.029Z</updated>
     </entry>
     <entry>
-        <id>DB/MySQL各大版本新特性一览/</id>
+        <id>https://java4ye.cn/DB/MySQL%E5%90%84%E5%A4%A7%E7%89%88%E6%9C%AC%E6%96%B0%E7%89%B9%E6%80%A7%E4%B8%80%E8%A7%88/</id>
         <title>MySQL各大版本新特性一览</title>
-        <link rel="alternate" href="DB/MySQL各大版本新特性一览/"/>
+        <link rel="alternate" href="https://java4ye.cn/DB/MySQL%E5%90%84%E5%A4%A7%E7%89%88%E6%9C%AC%E6%96%B0%E7%89%B9%E6%80%A7%E4%B8%80%E8%A7%88/"/>
         <content type="html">&lt;p&gt;嘀嘀嘀～理想每天都更文，现实几天一篇文，横批： 文呢？&lt;/p&gt;
 &lt;p&gt;哈哈哈 无奈呀&lt;/p&gt;
 &lt;p&gt;这是第二次为小伙伴写文章啦！ 上一次是恋爱的味道，这次却是学习的芳香 哈哈😋&lt;/p&gt;
@@ -511,13 +1539,13 @@ ALTER TABLE t1 ALTER INDEX i_idx VISIBLE;
 &lt;p&gt;&lt;strong&gt;我是 4ye 咱们下期很快再见！！&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 </content>
-        <category term="DB领域" scheme="/categories/DB/" />
+        <category term="DB领域" scheme="https://java4ye.cn/categories/DB/" />
         <updated>2022-01-16T15:26:05.223Z</updated>
     </entry>
     <entry>
-        <id>SearchEngine/ElasticSearch中必须掌握的七个概念/</id>
+        <id>https://java4ye.cn/SearchEngine/ElasticSearch%E4%B8%AD%E5%BF%85%E9%A1%BB%E6%8E%8C%E6%8F%A1%E7%9A%84%E4%B8%83%E4%B8%AA%E6%A6%82%E5%BF%B5/</id>
         <title>ElasticSearch中必须掌握的七个概念</title>
-        <link rel="alternate" href="SearchEngine/ElasticSearch中必须掌握的七个概念/"/>
+        <link rel="alternate" href="https://java4ye.cn/SearchEngine/ElasticSearch%E4%B8%AD%E5%BF%85%E9%A1%BB%E6%8E%8C%E6%8F%A1%E7%9A%84%E4%B8%83%E4%B8%AA%E6%A6%82%E5%BF%B5/"/>
         <content type="html">&lt;p&gt;小伙伴们好呀～我是 4ye (・̀ ω・́) y，今天来和大家分享下这个 ElasticSearch 中必须要掌握的几个概念。👇&lt;/p&gt;
 &lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/image-20211124230156625.png&#34; alt=&#34;image-20211124230156625&#34; /&gt;&lt;/p&gt;
 &lt;h3 id=&#34;整体关系&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#整体关系&#34;&gt;#&lt;/a&gt; 整体关系&lt;/h3&gt;
@@ -638,13 +1666,13 @@ ALTER TABLE t1 ALTER INDEX i_idx VISIBLE;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;我是 4ye 咱们下期应该…… 很快再见！！&lt;/strong&gt; 😆&lt;/p&gt;
 </content>
-        <category term="搜索引擎" scheme="/categories/SearchEngine/" />
+        <category term="搜索引擎" scheme="https://java4ye.cn/categories/SearchEngine/" />
         <updated>2022-01-16T15:21:44.429Z</updated>
     </entry>
     <entry>
-        <id>Spring/16张图解锁Spring的整体脉络啦/</id>
+        <id>https://java4ye.cn/Spring/16%E5%BC%A0%E5%9B%BE%E8%A7%A3%E9%94%81Spring%E7%9A%84%E6%95%B4%E4%BD%93%E8%84%89%E7%BB%9C%E5%95%A6/</id>
         <title>16张图解锁Spring的整体脉络</title>
-        <link rel="alternate" href="Spring/16张图解锁Spring的整体脉络啦/"/>
+        <link rel="alternate" href="https://java4ye.cn/Spring/16%E5%BC%A0%E5%9B%BE%E8%A7%A3%E9%94%81Spring%E7%9A%84%E6%95%B4%E4%BD%93%E8%84%89%E7%BB%9C%E5%95%A6/"/>
         <content type="html">&lt;p&gt;今天来梳理下 &lt;strong&gt;Spring&lt;/strong&gt; 的整体脉络啦，为后面的文章做个铺垫～&lt;/p&gt;
 &lt;p&gt;后面几篇文章应该会讲讲这些内容啦 😆&lt;/p&gt;
 &lt;ol&gt;
@@ -851,13 +1879,13 @@ ALTER TABLE t1 ALTER INDEX i_idx VISIBLE;
 &lt;p&gt;&lt;strong&gt;我是 4ye 咱们下期应该…… 很快再见！！&lt;/strong&gt; 😆&lt;/p&gt;
 &lt;p&gt;喜欢的话还可以关注下公众号 &lt;strong&gt;Java4ye&lt;/strong&gt; 支持下 &lt;strong&gt;4ye&lt;/strong&gt; 呀😝&lt;/p&gt;
 </content>
-        <category term="Spring家族" scheme="/categories/Spring/" />
+        <category term="Spring家族" scheme="https://java4ye.cn/categories/Spring/" />
         <updated>2022-01-16T10:34:27.097Z</updated>
     </entry>
     <entry>
-        <id>Python/情窦初开，连喜欢都这么的青涩/</id>
+        <id>https://java4ye.cn/Python/%E6%83%85%E7%AA%A6%E5%88%9D%E5%BC%80%EF%BC%8C%E8%BF%9E%E5%96%9C%E6%AC%A2%E9%83%BD%E8%BF%99%E4%B9%88%E7%9A%84%E9%9D%92%E6%B6%A9/</id>
         <title>情窦初开，原来喜欢这么可爱的</title>
-        <link rel="alternate" href="Python/情窦初开，连喜欢都这么的青涩/"/>
+        <link rel="alternate" href="https://java4ye.cn/Python/%E6%83%85%E7%AA%A6%E5%88%9D%E5%BC%80%EF%BC%8C%E8%BF%9E%E5%96%9C%E6%AC%A2%E9%83%BD%E8%BF%99%E4%B9%88%E7%9A%84%E9%9D%92%E6%B6%A9/"/>
         <content type="html">&lt;p&gt;这两天被一位可爱的小粉丝秀到了，原来 这就是 &lt;strong&gt;年少的喜欢呀&lt;/strong&gt;～～😊&lt;/p&gt;
 &lt;p&gt;让 4ye 这上了年纪的老人家好生羡慕呀😝&lt;/p&gt;
 &lt;p&gt;直接上图让大家一起感受下  &amp;lt;(￣︶￣)↗[GO!]&lt;/p&gt;
@@ -889,13 +1917,13 @@ ALTER TABLE t1 ALTER INDEX i_idx VISIBLE;
 &lt;h3 id=&#34;喜欢真好呀-oo&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#喜欢真好呀-oo&#34;&gt;#&lt;/a&gt; 喜欢，真好呀 o (&lt;sup&gt;▽&lt;/sup&gt;)o&lt;/h3&gt;
 &lt;h3 id=&#34;不知道此刻阅读的你是否也有这一股喜欢的劲愿你们互相吸引~-牵起手来&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#不知道此刻阅读的你是否也有这一股喜欢的劲愿你们互相吸引~-牵起手来&#34;&gt;#&lt;/a&gt; 不知道此刻阅读的你，是否也有这一股喜欢的劲，愿你们互相吸引～牵起手来 😝&lt;/h3&gt;
 </content>
-        <category term="Python" scheme="/categories/Python/" />
+        <category term="Python" scheme="https://java4ye.cn/categories/Python/" />
         <updated>2022-01-16T10:32:28.553Z</updated>
     </entry>
     <entry>
-        <id>Java/单例模式八个例子/</id>
+        <id>https://java4ye.cn/Java/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E5%85%AB%E4%B8%AA%E4%BE%8B%E5%AD%90/</id>
         <title>单例模式八个例子</title>
-        <link rel="alternate" href="Java/单例模式八个例子/"/>
+        <link rel="alternate" href="https://java4ye.cn/Java/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E5%85%AB%E4%B8%AA%E4%BE%8B%E5%AD%90/"/>
         <content type="html">&lt;blockquote&gt;
 &lt;p&gt;实现单例模式的八种模式：饿汉式，懒汉式，双重检查锁模式，静态内部类模式，序列化模式，注册式之枚举，注册式之容器，线程实现 ThreadLocal&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -944,7 +1972,7 @@ ALTER TABLE t1 ALTER INDEX i_idx VISIBLE;
 &lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/20200911072319.png&#34; alt=&#34;反射破坏单例模式&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;有什么不对的请多多指教，阿里嘎多😄&lt;/p&gt;
 </content>
-        <category term="Java" scheme="/categories/Java/" />
+        <category term="Java" scheme="https://java4ye.cn/categories/Java/" />
         <updated>2022-01-16T09:54:55.312Z</updated>
     </entry>
 </feed>
