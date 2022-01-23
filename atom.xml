@@ -2168,22 +2168,11 @@ ALTER TABLE t1 ALTER INDEX i_idx VISIBLE;
         <title>jackson解析泛型的正确写法</title>
         <link rel="alternate" href="https://www.java4ye.cn/Java/jackson%E8%A7%A3%E6%9E%90%E6%B3%9B%E5%9E%8B%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%86%99%E6%B3%95/"/>
         <content type="html">&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/20201202082043.png&#34; alt=&#34;20201202082043&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;我的个人网站 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3d3dy5yeXpleWFuZy50b3Av&#34;&gt;www.ryzeyang.top&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;内容概览&lt;br /&gt;
 解决 1024 当天遗留的 bug： &lt;code&gt;in unnamed module of loader &#39;app&#39;&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&amp;lt;!--&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;@Descripttion    :&lt;/li&gt;
-&lt;li&gt;@Author          : RyzeYang&lt;/li&gt;
-&lt;li&gt;@version         :&lt;/li&gt;
-&lt;li&gt;@Date            : 2020-10-27 07:33:28&lt;/li&gt;
-&lt;li&gt;@LastEditors     : RyzeYang&lt;/li&gt;
-&lt;li&gt;@LastEditTime    : 2020-10-27 22:52:18&lt;br /&gt;
---&amp;gt;&lt;br /&gt;
-&lt;img data-src=&#34;http://img.ryzeyang.top/20201027223716.png&#34; alt=&#34;20201027223716&#34; /&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/20201027223716.png&#34; alt=&#34;20201027223716&#34; /&gt;&lt;/p&gt;
 &lt;h2 id=&#34;bug描述&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#bug描述&#34;&gt;#&lt;/a&gt; bug 描述&lt;/h2&gt;
 &lt;p&gt;上次使用 jackson 进行数据转换的时候发生了下面这个错误。&lt;/p&gt;
 &lt;figure class=&#34;highlight java&#34;&gt;&lt;figcaption data-lang=&#34;java&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;&lt;span class=&#34;token namespace&#34;&gt;java&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;lang&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;/span&gt;ClassCastException&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;&lt;span class=&#34;token namespace&#34;&gt;java&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;util&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;/span&gt;LinkedHashMap&lt;/span&gt; cannot be cast &lt;span class=&#34;token keyword&#34;&gt;to&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;&lt;span class=&#34;token namespace&#34;&gt;com&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;example&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;demo&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;model&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;/span&gt;User&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;&lt;span class=&#34;token namespace&#34;&gt;java&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;util&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;/span&gt;LinkedHashMap&lt;/span&gt; is in &lt;span class=&#34;token keyword&#34;&gt;module&lt;/span&gt; &lt;span class=&#34;token namespace&#34;&gt;java&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;base&lt;/span&gt; of loader &#39;bootstrap&#39;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;&lt;span class=&#34;token namespace&#34;&gt;com&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;example&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;demo&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;model&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;/span&gt;User&lt;/span&gt; is in unnamed &lt;span class=&#34;token keyword&#34;&gt;module&lt;/span&gt; &lt;span class=&#34;token namespace&#34;&gt;of&lt;/span&gt; loader &lt;span class=&#34;token char&#34;&gt;&#39;app&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/20201024190656.png&#34; alt=&#34;20201024190656&#34; /&gt;&lt;/p&gt;
@@ -2239,17 +2228,7 @@ ALTER TABLE t1 ALTER INDEX i_idx VISIBLE;
         <id>https://www.java4ye.cn/Java/java8%E5%9B%9B%E5%A4%A7%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3/</id>
         <title>java8四大函数式接口</title>
         <link rel="alternate" href="https://www.java4ye.cn/Java/java8%E5%9B%9B%E5%A4%A7%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3/"/>
-        <content type="html">&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/20201202082043.png&#34; alt=&#34;20201202082043&#34; /&gt;&lt;br /&gt;
-&amp;lt;!--&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;@Descripttion    :&lt;/li&gt;
-&lt;li&gt;@Author          : RyzeYang&lt;/li&gt;
-&lt;li&gt;@version         :&lt;/li&gt;
-&lt;li&gt;@Date            : 2020-10-13 23:28:10&lt;/li&gt;
-&lt;li&gt;@LastEditors     : RyzeYang&lt;/li&gt;
-&lt;li&gt;@LastEditTime    : 2020-10-14 23:37:51&lt;br /&gt;
---&amp;gt;&lt;/li&gt;
-&lt;/ul&gt;
+        <content type="html">&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/20201202082043.png&#34; alt=&#34;20201202082043&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;说到 java8  那不得不聊下它的这个函数式编程啦 😁&lt;/p&gt;
 &lt;h2 id=&#34;函数式接口&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#函数式接口&#34;&gt;#&lt;/a&gt; 函数式接口&lt;/h2&gt;
 &lt;blockquote&gt;
@@ -2289,17 +2268,7 @@ ALTER TABLE t1 ALTER INDEX i_idx VISIBLE;
         <id>https://www.java4ye.cn/Java/%E6%B3%9B%E5%9E%8B%E7%9A%84%E4%B8%8A%E4%B8%8B%E9%99%90/</id>
         <title>泛型的上下限</title>
         <link rel="alternate" href="https://www.java4ye.cn/Java/%E6%B3%9B%E5%9E%8B%E7%9A%84%E4%B8%8A%E4%B8%8B%E9%99%90/"/>
-        <content type="html">&lt;p&gt;&amp;lt;!--&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;@Descripttion    :&lt;/li&gt;
-&lt;li&gt;@Author          : RyzeYang&lt;/li&gt;
-&lt;li&gt;@version         :&lt;/li&gt;
-&lt;li&gt;@Date            : 2020-10-12 07:36:42&lt;/li&gt;
-&lt;li&gt;@LastEditors     : RyzeYang&lt;/li&gt;
-&lt;li&gt;@LastEditTime    : 2020-10-13 23:13:50&lt;br /&gt;
---&amp;gt;&lt;br /&gt;
-&lt;img data-src=&#34;http://img.ryzeyang.top/20201202082043.png&#34; alt=&#34;20201202082043&#34; /&gt;&lt;/li&gt;
-&lt;/ul&gt;
+        <content type="html">&lt;p&gt;&lt;img data-src=&#34;http://img.ryzeyang.top/20201202082043.png&#34; alt=&#34;20201202082043&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;博主经常混淆了泛型的上限和下限的使用。。🐖, 正巧在阿里巴巴的 java 开发手册 ——《Java 开发手册（嵩山版）》中看到有关泛型的这个知识点👍，写写笔记，希望不要再忘啦😄&lt;br /&gt;
 如下图:&lt;br /&gt;
 &lt;img data-src=&#34;http://img.ryzeyang.top/20201012231256.png&#34; alt=&#34;20201012231256&#34; /&gt;&lt;br /&gt;
