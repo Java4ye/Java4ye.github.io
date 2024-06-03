@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.java4ye.cn</id>
-    <title>程序员小站</title>
-    <subtitle>4ye的后端技术小站</subtitle>
+    <title>你好，世界，还有你好！</title>
+    <subtitle>Hello World, and to thee!</subtitle>
     <icon>https://www.java4ye.cn/images/favicon.ico</icon>
     <link href="https://www.java4ye.cn" />
     <author>

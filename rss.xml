@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <rss version="2.0">
     <channel>
-        <title>程序员小站</title>
-        <subtitle>4ye的后端技术小站</subtitle>
+        <title>你好，世界，还有你好！</title>
+        <subtitle>Hello World, and to thee!</subtitle>
         <icon>https://www.java4ye.cn/images/favicon.ico</icon>
         <link>https://www.java4ye.cn</link>
         <author>
           <name>Java4ye</name>
         </author>
-        <description>整理公众号Java4ye 的文章,方便复习查阅😋</description>
+        <description>程序人生，Life &amp; Code~</description>
         <language>en</language>
         <pubDate>Mon, 03 Jun 2024 23:37:43 +0800</pubDate>
         <lastBuildDate>Mon, 03 Jun 2024 23:37:43 +0800</lastBuildDate>
