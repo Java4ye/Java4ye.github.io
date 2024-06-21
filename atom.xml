@@ -8,13 +8,33 @@
     <author>
       <name>Java4ye</name>
     </author>
-    <updated>2024-06-03T15:37:43.746Z</updated>
+    <updated>2024-06-21T22:57:23.407Z</updated>
     <category term="程序员小站" />
     <category term="java4ye" />
     <category term="4ye" />
     <category term="后端" />
     <category term="Java" />
     <category term="Spring" />
+    <entry>
+        <id>https://www.java4ye.cn/posts/6e24b4f.html</id>
+        <title>数据库专栏</title>
+        <link rel="alternate" href="https://www.java4ye.cn/posts/6e24b4f.html"/>
+        <content type="html">&lt;h3 id=&#34;部分文章&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#部分文章&#34;&gt;#&lt;/a&gt; 部分文章 👇&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9tcC53ZWl4aW4ucXEuY29tL3MvT3d4ZWduTjBFV2hKd0ltN0dYOHA2QQ==&#34;&gt;了解 5 大关系型数据库的特点，使用场景&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9tcC53ZWl4aW4ucXEuY29tL3MvQTFVS3FzcEhTZUhhcG1xaWI0R1A5QQ==&#34;&gt;除了 Redis，你还知道哪些键值数据库？&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;专栏地址&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#专栏地址&#34;&gt;#&lt;/a&gt; 专栏地址&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在微信文章结尾就可以看到了～&lt;br /&gt;
+ 感谢您的阅读，欢迎关注博主的公众号 Java4ye 😋&lt;br /&gt;
+祝你有个美好的一天！😝&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+        <category term="数据库" scheme="https://www.java4ye.cn/categories/DB/" />
+        <category term="数据库" scheme="https://www.java4ye.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" />
+        <updated>2024-06-21T22:57:23.407Z</updated>
+    </entry>
     <entry>
         <id>https://www.java4ye.cn/posts/f5d7a4bc.html</id>
         <title>系统设计专栏</title>

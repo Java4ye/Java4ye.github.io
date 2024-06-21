@@ -7,6 +7,17 @@
     "home_page_url": "https://www.java4ye.cn",
     "items": [
         {
+            "id": "https://www.java4ye.cn/posts/6e24b4f.html",
+            "url": "https://www.java4ye.cn/posts/6e24b4f.html",
+            "title": "数据库专栏",
+            "date_published": "2024-06-21T22:57:23.407Z",
+            "content_html": "<h3 id=\"部分文章\"><a class=\"anchor\" href=\"#部分文章\">#</a> 部分文章 👇</h3>\n<ul>\n<li><span class=\"exturl\" data-url=\"aHR0cHM6Ly9tcC53ZWl4aW4ucXEuY29tL3MvT3d4ZWduTjBFV2hKd0ltN0dYOHA2QQ==\">了解 5 大关系型数据库的特点，使用场景</span></li>\n<li><span class=\"exturl\" data-url=\"aHR0cHM6Ly9tcC53ZWl4aW4ucXEuY29tL3MvQTFVS3FzcEhTZUhhcG1xaWI0R1A5QQ==\">除了 Redis，你还知道哪些键值数据库？</span></li>\n</ul>\n<h3 id=\"专栏地址\"><a class=\"anchor\" href=\"#专栏地址\">#</a> 专栏地址</h3>\n<blockquote>\n<p>在微信文章结尾就可以看到了～<br />\n 感谢您的阅读，欢迎关注博主的公众号 Java4ye 😋<br />\n祝你有个美好的一天！😝</p>\n</blockquote>\n",
+            "tags": [
+                "数据库",
+                "数据库"
+            ]
+        },
+        {
             "id": "https://www.java4ye.cn/posts/f5d7a4bc.html",
             "url": "https://www.java4ye.cn/posts/f5d7a4bc.html",
             "title": "系统设计专栏",
